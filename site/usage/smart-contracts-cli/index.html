@@ -1,0 +1,1032 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Your Name or Organization">
+      
+      
+        <link rel="canonical" href="https://yourusername.github.io/resilientdb-quickstart/usage/smart-contracts-cli/">
+      
+      
+        <link rel="prev" href="../resdborm/">
+      
+      
+        <link rel="next" href="../smart-contracts-graphql/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
+    
+    
+      
+        <title>Smart-Contracts CLI - ResilientDB Quickstart Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8c3ca2c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#rescontract-cli" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="ResilientDB Quickstart Guide" class="md-header__button md-logo" aria-label="ResilientDB Quickstart Guide" data-md-component="logo">
+      
+  <img src="../../images/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ResilientDB Quickstart Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Smart-Contracts CLI
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="ResilientDB Quickstart Guide" class="md-nav__button md-logo" aria-label="ResilientDB Quickstart Guide" data-md-component="logo">
+      
+  <img src="../../images/logo.svg" alt="logo">
+
+    </a>
+    ResilientDB Quickstart Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Usage
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Usage
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resilientdb/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ResilientDB
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pythonsdk/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PythonSDK
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resdborm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ResDBORM
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Smart-Contracts CLI
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Smart-Contracts CLI
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table of Contents
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features ✨
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prerequisites">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-solc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing solc
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installing solc">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linux-ubuntudebian" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux (Ubuntu/Debian)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#macos" class="md-nav__link">
+    <span class="md-ellipsis">
+      macOS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation 🛠️
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation 🛠️">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-2-use-a-configyaml-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option 2: Use a config.yaml File
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Commands
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      create Command
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compile-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      compile Command
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deploy-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      deploy Command
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#execute-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      execute Command
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    <span class="md-ellipsis">
+      License
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../smart-contracts-graphql/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Smart-Contracts GraphQL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resvault/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ResVault
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#table-of-contents" class="md-nav__link">
+    <span class="md-ellipsis">
+      Table of Contents
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Features ✨
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prerequisites
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prerequisites">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-solc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installing solc
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installing solc">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linux-ubuntudebian" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linux (Ubuntu/Debian)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#macos" class="md-nav__link">
+    <span class="md-ellipsis">
+      macOS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation 🛠️
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation 🛠️">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-2-use-a-configyaml-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Option 2: Use a config.yaml File
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      Usage
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      Commands
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      create Command
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compile-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      compile Command
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deploy-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      deploy Command
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#execute-command" class="md-nav__link">
+    <span class="md-ellipsis">
+      execute Command
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    <span class="md-ellipsis">
+      License
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="rescontract-cli">ResContract CLI 🚀<a class="headerlink" href="#rescontract-cli" title="Permanent link">&para;</a></h1>
+<p>The <strong>ResContract CLI</strong> is a command-line tool for creating, deploying, and managing smart contracts within the ResilientDB ecosystem. It provides a streamlined interface for developers and students to interact with smart contracts efficiently.</p>
+<h2 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="#features-">Features ✨</a></li>
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#installation-️">Installation 🛠️</a></li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#commands">Commands</a><ul>
+<li><a href="#create-command">create Command</a></li>
+<li><a href="#compile-command">compile Command</a></li>
+<li><a href="#deploy-command">deploy Command</a></li>
+<li><a href="#execute-command">execute Command</a></li>
+</ul>
+</li>
+<li><a href="#configuration-️">Configuration ⚙️</a></li>
+<li><a href="#setting-the-resdb_home-variable">Setting the ResDB_Home Variable</a><ul>
+<li><a href="#option-1-set-resdb_home-environment-variable">Option 1: Set <code>ResDB_Home</code> Environment Variable</a></li>
+<li><a href="#option-2-use-a-configyaml-file">Option 2: Use a <code>config.yaml</code> File</a></li>
+</ul>
+</li>
+<li><a href="#contributing">Contributing</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+<h2 id="features">Features ✨<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Create Smart Contracts</strong>: Generate new smart contract templates.</li>
+<li><strong>Compile Contracts</strong>: Compile Solidity contracts to JSON.</li>
+<li><strong>Deploy Smart Contracts</strong>: Deploy contracts to the blockchain.</li>
+<li><strong>Execute Functions</strong>: Interact with and manage deployed contracts.</li>
+</ul>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<p>Before installing and using the ResContract CLI, ensure you have the following prerequisites installed on your system:</p>
+<ul>
+<li><strong>Node.js (version &gt;= 14)</strong>: <a href="https://nodejs.org/en/download/">Download and install Node.js</a></li>
+<li><strong>npm</strong>: Comes with Node.js. Ensure it's up-to-date.</li>
+<li><strong>Solidity Compiler (<code>solc</code>)</strong>: Required to compile smart contracts.</li>
+</ul>
+<h3 id="installing-solc">Installing <code>solc</code><a class="headerlink" href="#installing-solc" title="Permanent link">&para;</a></h3>
+<h4 id="linux-ubuntudebian">Linux (Ubuntu/Debian)<a class="headerlink" href="#linux-ubuntudebian" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code>sudo<span class="w"> </span>add-apt-repository<span class="w"> </span>ppa:ethereum/ethereum
+sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>solc
+</code></pre></div>
+
+<h4 id="macos">macOS<a class="headerlink" href="#macos" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><code>brew<span class="w"> </span>update
+brew<span class="w"> </span>upgrade
+brew<span class="w"> </span>tap<span class="w"> </span>ethereum/ethereum
+brew<span class="w"> </span>install<span class="w"> </span>solidity
+</code></pre></div>
+
+<h2 id="installation">Installation 🛠️<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<p>Install the ResContract CLI globally using npm:</p>
+<div class="codehilite"><pre><span></span><code>npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>rescontract-cli
+<span class="sb">````</span><span class="w"> </span>
+
+<span class="c1">## Configuration ⚙️</span>
+
+<span class="c1">### Setting the ResDB_Home Variable</span>
+
+Before<span class="w"> </span>using<span class="w"> </span>the<span class="w"> </span>ResContract<span class="w"> </span>CLI,<span class="w"> </span>you<span class="w">  </span>**must**<span class="w">  </span><span class="nb">set</span><span class="w"> </span>the<span class="w">  </span><span class="sb">`</span>ResDB_Home<span class="sb">`</span><span class="w">  </span>environment<span class="w"> </span>variable<span class="w"> </span>or<span class="w"> </span>provide<span class="w"> </span>the<span class="w"> </span>path<span class="w"> </span>to<span class="w"> </span>your<span class="w"> </span>ResilientDB<span class="w"> </span>installation<span class="w"> </span><span class="k">in</span><span class="w"> </span>a<span class="w">  </span><span class="sb">`</span>config.yaml<span class="sb">`</span><span class="w">  </span>file.<span class="w"> </span>The<span class="w"> </span>CLI<span class="w"> </span>will<span class="w">  </span>**not**<span class="w">  </span>prompt<span class="w"> </span>you<span class="w"> </span><span class="k">for</span><span class="w"> </span>this<span class="w"> </span>path<span class="w"> </span>and<span class="w"> </span>will<span class="w"> </span><span class="nb">exit</span><span class="w"> </span>with<span class="w"> </span>an<span class="w"> </span>error<span class="w"> </span><span class="k">if</span><span class="w"> </span>it<span class="err">&#39;</span>s<span class="w"> </span>not<span class="w"> </span>set.
+
+<span class="c1">#### Option 1: Set  `ResDB_Home`  Environment Variable</span>
+
+Set<span class="w"> </span>the<span class="w">  </span><span class="sb">`</span>ResDB_Home<span class="sb">`</span><span class="w">  </span>environment<span class="w"> </span>variable<span class="w"> </span>to<span class="w"> </span>point<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>directory<span class="w"> </span>where<span class="w"> </span>ResilientDB<span class="w"> </span>is<span class="w"> </span>installed.
+
+**Linux/macOS:**
+<span class="sb">```</span>bash
+<span class="nb">export</span><span class="w"> </span><span class="nv">ResDB_Home</span><span class="o">=</span>/path/to/resilientdb
+</code></pre></div>
+
+<p>Add the above line to your  <code>.bashrc</code>  or  <code>.zshrc</code>  file to make it persistent.</p>
+<h4 id="option-2-use-a-configyaml-file">Option 2: Use a  <code>config.yaml</code>  File<a class="headerlink" href="#option-2-use-a-configyaml-file" title="Permanent link">&para;</a></h4>
+<p>Update the <code>config.yaml</code>  file in the same directory where you run the  <code>rescontract</code>  command or in your home directory.</p>
+<p><strong>Example  <code>config.yaml</code>:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="nt">ResDB_Home</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/path/to/resilientdb</span>
+</code></pre></div>
+
+<p>Ensure the  <code>ResDB_Home</code>  path is correct.</p>
+<blockquote>
+<p><strong>Note:</strong>  The CLI checks for  <code>config.yaml</code>  in the current directory first, then in your home directory.</p>
+</blockquote>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
+<p>After installation, you can use the  <code>rescontract</code>  command in your terminal.</p>
+<div class="codehilite"><pre><span></span><code>rescontract<span class="w"> </span>&lt;command&gt;<span class="w"> </span><span class="o">[</span>options<span class="o">]</span>
+</code></pre></div>
+
+<h3 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h3>
+<h4 id="create-command">create Command<a class="headerlink" href="#create-command" title="Permanent link">&para;</a></h4>
+<p>Initializes a new account using ResilientDB's smart contract tools.</p>
+<p><strong>Usage:</strong></p>
+<div class="codehilite"><pre><span></span><code>rescontract<span class="w"> </span>create<span class="w"> </span>--config<span class="w"> </span>&lt;path_to_config&gt;
+</code></pre></div>
+
+<ul>
+<li><code>--config, -c</code>: Path to the configuration file.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<div class="codehilite"><pre><span></span><code>rescontract<span class="w"> </span>create<span class="w"> </span>--config<span class="w"> </span>~/resilientdb/config/service.config
+</code></pre></div>
+
+<h4 id="compile-command">compile Command<a class="headerlink" href="#compile-command" title="Permanent link">&para;</a></h4>
+<p>Compiles a Solidity smart contract into a JSON file using  <code>solc</code>.</p>
+<p><strong>Usage:</strong></p>
+<div class="codehilite"><pre><span></span><code>rescontract<span class="w"> </span>compile<span class="w"> </span>--sol<span class="w"> </span>&lt;inputFile.sol&gt;<span class="w"> </span>--output<span class="w"> </span>&lt;outputFile.json&gt;
+</code></pre></div>
+
+<ul>
+<li><code>--sol, -s</code>: Path to the Solidity smart contract file.</li>
+<li><code>--output, -o</code>: Name of the resulting JSON file.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<div class="codehilite"><pre><span></span><code>rescontract<span class="w"> </span>compile<span class="w"> </span>--sol<span class="w"> </span>contracts/MyToken.sol<span class="w"> </span>--output<span class="w"> </span>build/MyToken.json
+</code></pre></div>
+
+<h4 id="deploy-command">deploy Command<a class="headerlink" href="#deploy-command" title="Permanent link">&para;</a></h4>
+<p>Deploys the smart contract to the blockchain.</p>
+<p><strong>Usage:</strong></p>
+<div class="codehilite"><pre><span></span><code>rescontract<span class="w"> </span>deploy<span class="w"> </span>--config<span class="w"> </span>&lt;service.config&gt;<span class="w"> </span>--contract<span class="w"> </span>&lt;contract.json&gt;<span class="w"> </span><span class="se">\</span>
+--name<span class="w"> </span>&lt;tokenName&gt;<span class="w"> </span>--arguments<span class="w"> </span><span class="s2">&quot;&lt;parameters&gt;&quot;</span><span class="w"> </span>--owner<span class="w"> </span>&lt;address&gt;
+</code></pre></div>
+
+<ul>
+<li><code>--config, -c</code>: Client configuration path.</li>
+<li><code>--contract, -p</code>: Path to the contract JSON file.</li>
+<li><code>--name, -n</code>: Name of the contract.</li>
+<li><code>--arguments, -a</code>: Parameters to create the contract object (enclosed in quotes).</li>
+<li><code>--owner, -m</code>: Contract owner's address.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<div class="codehilite"><pre><span></span><code>rescontract<span class="w"> </span>deploy<span class="w"> </span>--config<span class="w"> </span>~/resilientdb/config/service.config<span class="w"> </span><span class="se">\</span>
+--contract<span class="w"> </span>build/MyToken.json<span class="w"> </span>--name<span class="w"> </span>MyToken<span class="w"> </span><span class="se">\</span>
+--arguments<span class="w"> </span><span class="s2">&quot;1000000&quot;</span><span class="w"> </span>--owner<span class="w"> </span>0xYourAddress
+</code></pre></div>
+
+<h4 id="execute-command">execute Command<a class="headerlink" href="#execute-command" title="Permanent link">&para;</a></h4>
+<p>Executes a smart contract function.</p>
+<p><strong>Usage:</strong></p>
+<div class="codehilite"><pre><span></span><code>rescontract<span class="w"> </span>execute<span class="w"> </span>--config<span class="w"> </span>&lt;service.config&gt;<span class="w"> </span>--sender<span class="w"> </span>&lt;senderAddress&gt;<span class="w"> </span><span class="se">\</span>
+--contract<span class="w"> </span>&lt;contractAddress&gt;<span class="w"> </span>--function-name<span class="w"> </span>&lt;functionName&gt;<span class="w"> </span>--arguments<span class="w"> </span><span class="s2">&quot;&lt;parameters&gt;&quot;</span>
+</code></pre></div>
+
+<ul>
+<li><code>--config, -c</code>: Path to the client configuration file.</li>
+<li><code>--sender, -m</code>: Address of the sender executing the function.</li>
+<li><code>--contract, -s</code>: Address of the deployed contract.</li>
+<li><code>--function-name, -f</code>: Name of the function to execute (include parameter types).</li>
+<li><code>--arguments, -a</code>: Arguments to pass to the function (enclosed in quotes).</li>
+</ul>
+<p><strong>Example:</strong></p>
+<div class="codehilite"><pre><span></span><code>rescontract<span class="w"> </span>execute<span class="w"> </span>--config<span class="w"> </span>~/resilientdb/config/service.config<span class="w"> </span><span class="se">\</span>
+--sender<span class="w"> </span>0xYourAddress<span class="w"> </span>--contract<span class="w"> </span>0xContractAddress<span class="w"> </span><span class="se">\</span>
+--function-name<span class="w"> </span><span class="s2">&quot;transfer(address,uint256)&quot;</span><span class="w"> </span><span class="se">\</span>
+--arguments<span class="w"> </span><span class="s2">&quot;0xRecipientAddress,100&quot;</span>
+</code></pre></div>
+
+<h2 id="license">License<a class="headerlink" href="#license" title="Permanent link">&para;</a></h2>
+<p>This project is licensed under the MIT License - see the  <a href="LICENSE">LICENSE</a>  file for details.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.525ec568.min.js"></script>
+      
+    
+  </body>
+</html>

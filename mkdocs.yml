@@ -1,0 +1,52 @@
+site_name: ResilientDB Quickstart Guide
+site_url: https://yourusername.github.io/resilientdb-quickstart/
+site_author: 'Your Name or Organization'
+
+theme:
+  name: 'material'
+  logo: 'images/logo.svg'
+  palette:
+    primary: 'blue'
+    accent: 'teal'
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
+
+extra_css:
+  - 'css/extra.css'
+
+nav:
+  - Home: index.md
+  - Installation: installation.md
+  - Usage:
+      - ResilientDB: usage/resilientdb.md
+      - PythonSDK: usage/pythonsdk.md
+      - ResDBORM: usage/resdborm.md
+      - Smart-Contracts CLI: usage/smart-contracts-cli.md
+      - Smart-Contracts GraphQL: usage/smart-contracts-graphql.md
+      - ResVault: usage/resvault.md
+
+plugins:
+  - search
+  - external-markdown:
+      files:
+        - url: https://raw.githubusercontent.com/apache/incubator-resilientdb/refs/heads/master/README.md
+          path: usage/resilientdb.md
+        - url: https://raw.githubusercontent.com/apache/incubator-resilientdb-python-sdk/refs/heads/master/README.md
+          path: usage/pythonsdk.md
+        - url: https://raw.githubusercontent.com/ResilientEcosystem/ResDB-ORM/refs/heads/main/README.md
+          path: usage/resdborm.md
+        - url: https://raw.githubusercontent.com/ResilientEcosystem/ResContract/refs/heads/main/README.md
+          path: usage/smart-contracts-cli.md
+        - url: https://raw.githubusercontent.com/ResilientEcosystem/smart-contracts-graphql/refs/heads/main/README.md
+          path: usage/smart-contracts-graphql.md
+        - url: https://raw.githubusercontent.com/apache/incubator-resilientdb-resvault/refs/heads/master/README.md
+          path: usage/resvault.md
+
+markdown_extensions:
+  - admonition
+  - codehilite
+  - footnotes
+  - meta
+  - toc:
+      permalink: true
