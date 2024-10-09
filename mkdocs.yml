@@ -1,23 +1,45 @@
 site_name: ResilientDB Quickstart Guide
-site_url: https://yourusername.github.io/resilientdb-quickstart/
-site_author: 'Your Name or Organization'
+site_url: https://gopuman.github.io/resilientdb-quickstart/
+site_author: 'ResilientDB'
 
+# Theme configuration
 theme:
   name: 'material'
-  logo: 'images/logo.svg'
+  logo: 'images/logo.svg'  
   palette:
-    primary: 'blue'
-    accent: 'teal'
+    - scheme: default
+      primary: 'blue'
+      accent: 'teal'
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - scheme: slate
+      primary: 'blue'
+      accent: 'teal'
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
   font:
     text: 'Roboto'
     code: 'Roboto Mono'
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
 
+# Extra CSS and JavaScript
 extra_css:
-  - 'css/extra.css'
+  - 'stylesheets/extra.css'  # Custom CSS file
+extra_javascript:
+  - 'js/custom.js'  # Custom JavaScript file (optional)
 
+# Site navigation
 nav:
   - Home: index.md
-  - Installation: installation.md
+  - Installation:
+      - Overview: installation/index.md
+      - Requirements: installation/requirements.md
+      - Setup: installation/setup.md
   - Usage:
       - ResilientDB: usage/resilientdb.md
       - PythonSDK: usage/pythonsdk.md
@@ -25,24 +47,20 @@ nav:
       - Smart-Contracts CLI: usage/smart-contracts-cli.md
       - Smart-Contracts GraphQL: usage/smart-contracts-graphql.md
       - ResVault: usage/resvault.md
+  - API Reference: api.md
+  - About:
+      - Team: about/team.md
+      - Contact: about/contact.md
 
+# Plugins configuration
 plugins:
   - search
-  - external-markdown:
-      files:
-        - url: https://raw.githubusercontent.com/apache/incubator-resilientdb/refs/heads/master/README.md
-          path: usage/resilientdb.md
-        - url: https://raw.githubusercontent.com/apache/incubator-resilientdb-python-sdk/refs/heads/master/README.md
-          path: usage/pythonsdk.md
-        - url: https://raw.githubusercontent.com/ResilientEcosystem/ResDB-ORM/refs/heads/main/README.md
-          path: usage/resdborm.md
-        - url: https://raw.githubusercontent.com/ResilientEcosystem/ResContract/refs/heads/main/README.md
-          path: usage/smart-contracts-cli.md
-        - url: https://raw.githubusercontent.com/ResilientEcosystem/smart-contracts-graphql/refs/heads/main/README.md
-          path: usage/smart-contracts-graphql.md
-        - url: https://raw.githubusercontent.com/apache/incubator-resilientdb-resvault/refs/heads/master/README.md
-          path: usage/resvault.md
+  - include-markdown:
+      rewrite-relative-urls: true
+  # - blogging  # Uncomment if using a blogging plugin
+  # - mkdocstrings  # Uncomment if using API documentation
 
+# Markdown extensions
 markdown_extensions:
   - admonition
   - codehilite
@@ -50,3 +68,33 @@ markdown_extensions:
   - meta
   - toc:
       permalink: true
+  - pymdownx.tabbed
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.arithmatex
+  - pymdownx.betterem
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+
+# Extra configurations
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/ResilientEcosystem
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/YourProject
+  meta:
+    - name: description
+      content: "ResilientDB Quickstart Guide and Documentation"
+    - name: keywords
+      content: "ResilientDB, blockchain, documentation, quickstart"
+
+# Site directory configuration
+site_dir: site  # Output directory for built site
+
+# Repository configuration
+repo_name: 'ResilientEcosystem/resilientdb-quickstart'
+repo_url: 'https://github.com/ResilientEcosystem/resilientdb-quickstart'
+edit_uri: 'edit/main/docs/'
