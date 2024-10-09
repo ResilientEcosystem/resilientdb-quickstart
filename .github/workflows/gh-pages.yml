@@ -18,7 +18,7 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          pip install mkdocs mkdocs-material mkdocs-external-markdown
+          pip install mkdocs mkdocs-material mkdocs-embed-external-markdown
 
       - name: Build Documentation
         run: |
