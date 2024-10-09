@@ -5,26 +5,38 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v3
 
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.8'
+          python-version: '3.x'
 
       - name: Install Dependencies
         run: |
-          pip install mkdocs mkdocs-material mkdocs-embed-external-markdown
+          pip install -r requirements.txt
 
       - name: Build Documentation
         run: |
           mkdocs build --clean
 
+      - name: Upload Build Artifacts on Failure
+        if: failure()
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-artifacts
+          path: site/
+
       - name: Deploy to GitHub Pages
+        if: success()
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
