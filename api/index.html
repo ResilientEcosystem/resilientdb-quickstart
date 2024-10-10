@@ -10,28 +10,28 @@
         <meta name="author" content="ResilientDB">
       
       
-        <link rel="canonical" href="https://gopuman.github.io/resilientdb-quickstart/usage/smart-contracts-graphql/">
+        <link rel="canonical" href="https://gopuman.github.io/resilientdb-quickstart/api/">
       
       
-        <link rel="prev" href="../smart-contracts-cli/">
+        <link rel="prev" href="../usage/resvault/">
       
       
-        <link rel="next" href="../resvault/">
+        <link rel="next" href="../about/">
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
     
     
       
-        <title>Smart-Contracts GraphQL - ResilientDB Quickstart Guide</title>
+        <title>API Reference - ResilientDB Quickstart Guide</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.8c3ca2c6.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.8c3ca2c6.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -50,9 +50,9 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#smart-contracts-graphql-api" class="md-skip">
+        <a href="#api-reference" class="md-skip">
           Skip to content
         </a>
       
@@ -92,9 +92,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="ResilientDB Quickstart Guide" class="md-header__button md-logo" aria-label="ResilientDB Quickstart Guide" data-md-component="logo">
+    <a href=".." title="ResilientDB Quickstart Guide" class="md-header__button md-logo" aria-label="ResilientDB Quickstart Guide" data-md-component="logo">
       
-  <img src="../../images/logo.svg" alt="logo">
+  <img src="../images/logo.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -111,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Smart-Contracts GraphQL
+              API Reference
             
           </span>
         </div>
@@ -218,7 +218,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href=".." class="md-tabs__link">
         
   
     
@@ -235,7 +235,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../installation/" class="md-tabs__link">
+      <a href="../installation/" class="md-tabs__link">
         
   
     
@@ -250,13 +250,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../resilientdb/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../usage/resilientdb/" class="md-tabs__link">
           
   
   Usage
@@ -270,9 +268,11 @@
         
   
   
+    
   
-    <li class="md-tabs__item">
-      <a href="../../api/" class="md-tabs__link">
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
         
   
     
@@ -289,7 +289,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../about/" class="md-tabs__link">
+      <a href="../about/" class="md-tabs__link">
         
   
     
@@ -323,9 +323,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="ResilientDB Quickstart Guide" class="md-nav__button md-logo" aria-label="ResilientDB Quickstart Guide" data-md-component="logo">
+    <a href=".." title="ResilientDB Quickstart Guide" class="md-nav__button md-logo" aria-label="ResilientDB Quickstart Guide" data-md-component="logo">
       
-  <img src="../../images/logo.svg" alt="logo">
+  <img src="../images/logo.svg" alt="logo">
 
     </a>
     ResilientDB Quickstart Guide
@@ -352,7 +352,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href=".." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -372,7 +372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../installation/" class="md-nav__link">
+      <a href="../installation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -389,30 +389,25 @@
       
   
   
-    
   
   
-  
     
     
     
-      
-        
-        
       
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -423,7 +418,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Usage
@@ -437,7 +432,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../resilientdb/" class="md-nav__link">
+      <a href="../usage/resilientdb/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -458,7 +453,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../pythonsdk/" class="md-nav__link">
+      <a href="../usage/pythonsdk/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -479,7 +474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../resdborm/" class="md-nav__link">
+      <a href="../usage/resdborm/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -500,7 +495,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../smart-contracts-cli/" class="md-nav__link">
+      <a href="../usage/smart-contracts-cli/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -516,6 +511,55 @@
             
               
                 
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usage/smart-contracts-graphql/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Smart-Contracts GraphQL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usage/resvault/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ResVault
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
   
   
     
@@ -534,7 +578,7 @@
           
   
   <span class="md-ellipsis">
-    Smart-Contracts GraphQL
+    API Reference
   </span>
   
 
@@ -545,7 +589,7 @@
         
   
   <span class="md-ellipsis">
-    Smart-Contracts GraphQL
+    API Reference
   </span>
   
 
@@ -567,6 +611,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#table-of-contents" class="md-nav__link">
     <span class="md-ellipsis">
       Table of Contents
@@ -576,52 +629,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    <span class="md-ellipsis">
-      Prerequisites
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Installation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuration
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#running-the-server" class="md-nav__link">
-    <span class="md-ellipsis">
-      Running the Server
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#graphql-api" class="md-nav__link">
-    <span class="md-ellipsis">
-      GraphQL API
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="GraphQL API">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#mutations" class="md-nav__link">
     <span class="md-ellipsis">
       Mutations
@@ -671,71 +678,6 @@
     </nav>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sample-mutations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Sample Mutations
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Sample Mutations">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#create-account" class="md-nav__link">
-    <span class="md-ellipsis">
-      Create Account
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#compile-contract" class="md-nav__link">
-    <span class="md-ellipsis">
-      Compile Contract
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#deploy-contract" class="md-nav__link">
-    <span class="md-ellipsis">
-      Deploy Contract
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#execute-contract" class="md-nav__link">
-    <span class="md-ellipsis">
-      Execute Contract
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#license" class="md-nav__link">
-    <span class="md-ellipsis">
-      License
-    </span>
-  </a>
-  
-</li>
       
     </ul>
   
@@ -744,35 +686,6 @@
     </li>
   
 
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../resvault/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    ResVault
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
     
       
       
@@ -781,27 +694,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../api/" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    API Reference
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../about/" class="md-nav__link">
+      <a href="../about/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -841,6 +734,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#table-of-contents" class="md-nav__link">
     <span class="md-ellipsis">
       Table of Contents
@@ -850,52 +752,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    <span class="md-ellipsis">
-      Prerequisites
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#installation" class="md-nav__link">
-    <span class="md-ellipsis">
-      Installation
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
-    <span class="md-ellipsis">
-      Configuration
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#running-the-server" class="md-nav__link">
-    <span class="md-ellipsis">
-      Running the Server
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#graphql-api" class="md-nav__link">
-    <span class="md-ellipsis">
-      GraphQL API
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="GraphQL API">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#mutations" class="md-nav__link">
     <span class="md-ellipsis">
       Mutations
@@ -945,71 +801,6 @@
     </nav>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sample-mutations" class="md-nav__link">
-    <span class="md-ellipsis">
-      Sample Mutations
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Sample Mutations">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#create-account" class="md-nav__link">
-    <span class="md-ellipsis">
-      Create Account
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#compile-contract" class="md-nav__link">
-    <span class="md-ellipsis">
-      Compile Contract
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#deploy-contract" class="md-nav__link">
-    <span class="md-ellipsis">
-      Deploy Contract
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#execute-contract" class="md-nav__link">
-    <span class="md-ellipsis">
-      Execute Contract
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#license" class="md-nav__link">
-    <span class="md-ellipsis">
-      License
-    </span>
-  </a>
-  
-</li>
       
     </ul>
   
@@ -1029,157 +820,185 @@
   
 
 
-<h1 id="smart-contracts-graphql-api">Smart Contracts GraphQL API<a class="headerlink" href="#smart-contracts-graphql-api" title="Permanent link">&para;</a></h1>
-<p>This repository provides a GraphQL API that allows users to interact with smart contracts in the ResilientDB ecosystem through a set of GraphQL queries and mutations. The API leverages the <code>rescontract-cli</code> tool to perform various functions, including creating accounts, compiling contracts, deploying contracts, and executing contract functions.</p>
-<h2 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Permanent link">&para;</a></h2>
+<h1 id="api-reference">API Reference<a class="headerlink" href="#api-reference" title="Permanent link">&para;</a></h1>
+<p>Welcome to the <strong>Smart Contracts GraphQL API Reference</strong>. This document provides detailed information about the available API calls, their parameters, and usage examples to help you interact with smart contracts in the ResilientDB ecosystem.</p>
+<hr />
+<h2 id="overview"><strong>Overview</strong><a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>The Smart Contracts GraphQL API allows you to perform the following operations:</p>
 <ul>
-<li><a href="#prerequisites">Prerequisites</a></li>
-<li><a href="#installation">Installation</a></li>
-<li><a href="#configuration">Configuration</a></li>
-<li><a href="#running-the-server">Running the Server</a></li>
-<li><a href="#graphql-api">GraphQL API</a></li>
+<li><strong>Create a new account</strong></li>
+<li><strong>Compile a smart contract</strong></li>
+<li><strong>Deploy a smart contract</strong></li>
+<li><strong>Execute a function on a deployed smart contract</strong></li>
+</ul>
+<p><strong>Endpoint URL:</strong> <code>http://localhost:4000/graphql</code></p>
+<hr />
+<h2 id="table-of-contents"><strong>Table of Contents</strong><a class="headerlink" href="#table-of-contents" title="Permanent link">&para;</a></h2>
+<ul>
 <li><a href="#mutations">Mutations</a></li>
-<li><a href="#sample-mutations">Sample Mutations</a></li>
-<li><a href="#contributing">Contributing</a></li>
-<li><a href="#license">License</a></li>
+<li><a href="#createaccount">createAccount</a></li>
+<li><a href="#compilecontract">compileContract</a></li>
+<li><a href="#deploycontract">deployContract</a></li>
+<li><a href="#executecontract">executeContract</a></li>
+<li><a href="#sample-usage">Sample Usage</a></li>
+<li><a href="#support">Support</a></li>
 </ul>
-<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
-<p>Before you begin, ensure you have the following prerequisites:</p>
-<ol>
-<li>
-<p><strong>ResilientDB</strong>: A running instance of ResilientDB with the smart contracts service running. More information and setup instructions can be found here: <a href="https://github.com/apache/incubator-resilientdb">ResilientDB</a></p>
-</li>
-<li>
-<p><strong>ResContract CLI</strong>: Install the <code>rescontract-cli</code> tool globally. Follow the instructions in the <a href="https://github.com/ResilientEcosystem/ResContract">ResContract CLI Repository</a> to install and configure it.</p>
-</li>
-</ol>
-<div class="highlight"><pre><span></span><code>npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>rescontract-cli
-</code></pre></div>
-<ol>
-<li><strong>Node.js (version &gt;= 14)</strong>:  Download and install Node.js</li>
-</ol>
-<p><strong>The prerequisites listed above can be installed using the <code>INSTALL.sh</code> script:</strong></p>
-<div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>+x<span class="w"> </span>INSTALL.sh
-./INSTALL.sh
-</code></pre></div>
-<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
-<p>To set up the project, follow these steps:</p>
-<ol>
-<li>
-<p><strong>Clone the repository</strong>:</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/yourusername/smart-contracts-graphql.git
-<span class="nb">cd</span><span class="w"> </span>smart-contracts-graphql
-</code></pre></div>
-</li>
-<li>
-<p><strong>Install dependencies</strong>:</p>
-<div class="highlight"><pre><span></span><code><span class="w"> </span>npm<span class="w"> </span>install
-</code></pre></div>
-</li>
-</ol>
-<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
-<p>Ensure that the  <code>ResContract CLI</code>  is properly configured. You need to set the  <code>ResDB_Home</code>  environment variable or provide a  <code>config.yaml</code>  file as required by the CLI.</p>
-<p>Refer to the  <a href="https://github.com/ResilientEcosystem/ResContract#configuration-">ResContract CLI README</a>  for detailed instructions.</p>
-<h2 id="running-the-server">Running the Server<a class="headerlink" href="#running-the-server" title="Permanent link">&para;</a></h2>
-<p>Start the server using the following command:</p>
-<div class="highlight"><pre><span></span><code>npm<span class="w"> </span>start
-</code></pre></div>
-<p>The server will start running on port  <code>4000</code>. You can access the GraphQL API at  <code>http://localhost:4000/graphql</code>.</p>
-<h2 id="graphql-api">GraphQL API<a class="headerlink" href="#graphql-api" title="Permanent link">&para;</a></h2>
-<p>The GraphQL API supports the following mutations to interact with smart contracts.</p>
-<h3 id="mutations">Mutations<a class="headerlink" href="#mutations" title="Permanent link">&para;</a></h3>
-<h4 id="createaccount"><code>createAccount</code><a class="headerlink" href="#createaccount" title="Permanent link">&para;</a></h4>
-<p>Creates a new account using the specified configuration file.</p>
-<p><strong>Type</strong>: Mutation</p>
-<p><strong>Arguments</strong>:</p>
+<hr />
+<h2 id="mutations"><strong>Mutations</strong><a class="headerlink" href="#mutations" title="Permanent link">&para;</a></h2>
+<h3 id="createaccount"><strong>createAccount</strong><a class="headerlink" href="#createaccount" title="Permanent link">&para;</a></h3>
+<p>Creates a new blockchain account.</p>
 <ul>
-<li><code>config</code>  (String!): Path to the configuration file.</li>
+<li><strong>Type:</strong> Mutation</li>
+<li><strong>Arguments:</strong><ul>
+<li><code>config</code> (String!): Path to the configuration file.</li>
 </ul>
-<p><strong>Returns</strong>: String - Address of the newly created account or an error message.</p>
-<h4 id="compilecontract"><code>compileContract</code><a class="headerlink" href="#compilecontract" title="Permanent link">&para;</a></h4>
-<p>Compiles a smart contract from the specified source path and outputs the compiled contract to the specified output path.</p>
-<p><strong>Type</strong>: Mutation</p>
-<p><strong>Arguments</strong>:</p>
-<ul>
-<li><code>sourcePath</code>  (String!): Path to the source file of the smart contract.</li>
-<li><code>outputPath</code>  (String!): Path to the output file for the compiled contract.</li>
+</li>
+<li><strong>Returns:</strong> The address of the newly created account.</li>
 </ul>
-<p><strong>Returns</strong>: String - Success message or an error message.</p>
-<h4 id="deploycontract"><code>deployContract</code><a class="headerlink" href="#deploycontract" title="Permanent link">&para;</a></h4>
-<p>Deploys a smart contract using the specified configuration, contract file, contract name, arguments, and owner address.</p>
-<p><strong>Type</strong>: Mutation</p>
-<p><strong>Arguments</strong>:</p>
-<ul>
-<li><code>config</code>  (String!): Path to the configuration file.</li>
-<li><code>contract</code>  (String!): Path to the contract JSON file.</li>
-<li><code>name</code>  (String!): Name of the contract (include the full path and contract name).</li>
-<li><code>arguments</code>  (String!): Constructor arguments for the contract (comma-separated).</li>
-<li><code>owner</code>  (String!): Owner address.</li>
-</ul>
-<p><strong>Returns</strong>: String - Details of the deployed contract or an error message.</p>
-<h4 id="executecontract"><code>executeContract</code><a class="headerlink" href="#executecontract" title="Permanent link">&para;</a></h4>
-<p>Executes a function of a deployed smart contract.</p>
-<p><strong>Type</strong>: Mutation</p>
-<p><strong>Arguments</strong>:</p>
-<ul>
-<li><code>config</code>  (String!): Path to the configuration file.</li>
-<li><code>sender</code>  (String!): Address of the sender.</li>
-<li><code>contract</code>  (String!): Address of the deployed contract.</li>
-<li><code>functionName</code>  (String!): Name of the function to execute (include parameter types).</li>
-<li><code>arguments</code>  (String!): Arguments for the function (comma-separated).</li>
-</ul>
-<p><strong>Returns</strong>: String - Result of the function execution or an error message.</p>
-<h2 id="sample-mutations">Sample Mutations<a class="headerlink" href="#sample-mutations" title="Permanent link">&para;</a></h2>
-<p>Here are some sample mutations you can run:</p>
-<h3 id="create-account">Create Account<a class="headerlink" href="#create-account" title="Permanent link">&para;</a></h3>
+<p><strong>Definition:</strong></p>
+<p><div class="highlight"><pre><span></span><code><span class="k">mutation</span><span class="w"> </span><span class="nf">createAccount</span><span class="p">(</span><span class="nv">$config</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">!)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">createAccount</span><span class="p">(</span><span class="n">config</span><span class="p">:</span><span class="w"> </span><span class="nv">$config</span><span class="p">)</span><span class="err">:</span><span class="w"> </span><span class="n">String</span>
+<span class="p">}</span>
+</code></pre></div>
+<strong>Example:</strong>
 <div class="highlight"><pre><span></span><code><span class="k">mutation</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="n">createAccount</span><span class="p">(</span><span class="n">config</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;../path/to/service.config&quot;</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><strong>Sample Response</strong>:</p>
-<p><div class="highlight"><pre><span></span><code><span class="p">{</span>
+<strong>Sample Response</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;createAccount&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0x3b706424119e09dcaad4acf21b10af3b33cde350&quot;</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h3 id="compilecontract"><strong>compileContract</strong><a class="headerlink" href="#compilecontract" title="Permanent link">&para;</a></h3>
+<p>Compiles a smart contract from a source file.</p>
+<p>•  <strong>Type:</strong> Mutation</p>
+<p>•  <strong>Arguments:</strong>
+* <code>sourcePath</code> (String!): Path to the smart contract source file (e.g., .sol file).
+* <code>outputPath</code> (String!): Path to save the compiled contract output.</p>
+<p>•  <strong>Returns:</strong> A success message or an error message.</p>
+<p><strong>Definition:</strong></p>
+<p><div class="highlight"><pre><span></span><code><span class="k">mutation</span><span class="w"> </span><span class="nf">compileContract</span><span class="p">(</span><span class="nv">$sourcePath</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">!,</span><span class="w"> </span><span class="nv">$outputPath</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">!)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">compileContract</span><span class="p">(</span><span class="n">sourcePath</span><span class="p">:</span><span class="w"> </span><span class="nv">$sourcePath</span><span class="p">,</span><span class="w"> </span><span class="n">outputPath</span><span class="p">:</span><span class="w"> </span><span class="nv">$outputPath</span><span class="p">)</span><span class="err">:</span><span class="w"> </span><span class="n">String</span>
+<span class="p">}</span>
 </code></pre></div>
-<strong>Explanation</strong>: This mutation creates a new account using the specified configuration file. The response contains the address of the newly created account.</p>
-<h3 id="compile-contract">Compile Contract<a class="headerlink" href="#compile-contract" title="Permanent link">&para;</a></h3>
-<p><div class="highlight"><pre><span></span><code><span class="k">mutation</span><span class="w"> </span><span class="p">{</span>
+<strong>Example:</strong>
+<div class="highlight"><pre><span></span><code><span class="k">mutation</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="n">compileContract</span><span class="p">(</span>
-<span class="w">    </span><span class="n">sourcePath</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/path/to/token.sol&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="n">outputPath</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;output.json&quot;</span>
+<span class="w">    </span><span class="n">sourcePath</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/path/to/Token.sol&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">outputPath</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;TokenCompiled.json&quot;</span>
 <span class="w">  </span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div>
-<strong>Sample Response</strong>:</p>
+<strong>Sample Response</strong>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;compileContract&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Compiled successfully to output.json&quot;</span>
+<span class="w">    </span><span class="nt">&quot;compileContract&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Compiled successfully to TokenCompiled.json&quot;</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h3 id="deploycontract"><strong>deployContract</strong><a class="headerlink" href="#deploycontract" title="Permanent link">&para;</a></h3>
+<p>Deploys a compiled smart contract to the blockchain.</p>
+<p>•  <strong>Type:</strong> Mutation</p>
+<p>•  <strong>Arguments:</strong></p>
+<ul>
+<li>
+<p><code>config</code> (String!): Path to the configuration file.</p>
+</li>
+<li>
+<p><code>contract</code> (String!): Path to the compiled contract JSON file.</p>
+</li>
+<li>
+<p><code>name</code> (String!): Full name of the contract (e.g., Token.sol:Token).</p>
+</li>
+<li>
+<p><code>arguments</code> (String): Constructor arguments for the contract (comma-separated).</p>
+</li>
+<li>
+<p><code>owner</code> (String!): Address of the owner deploying the contract.</p>
+</li>
+</ul>
+<p>•  <strong>Returns:</strong> Details of the deployed contract.</p>
+<p><strong>Definition:</strong></p>
+<p><div class="highlight"><pre><span></span><code><span class="k">mutation</span><span class="w"> </span><span class="nf">deployContract</span><span class="p">(</span>
+<span class="w">  </span><span class="nv">$config</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">!,</span>
+<span class="w">  </span><span class="nv">$contract</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">!,</span>
+<span class="w">  </span><span class="nv">$name</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">!,</span>
+<span class="w">  </span><span class="nv">$arguments</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span>
+<span class="w">  </span><span class="nv">$owner</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">!</span>
+<span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">deployContract</span><span class="p">(</span>
+<span class="w">    </span><span class="n">config</span><span class="p">:</span><span class="w"> </span><span class="nv">$config</span><span class="p">,</span>
+<span class="w">    </span><span class="n">contract</span><span class="p">:</span><span class="w"> </span><span class="nv">$contract</span><span class="p">,</span>
+<span class="w">    </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="nv">$name</span><span class="p">,</span>
+<span class="w">    </span><span class="n">arguments</span><span class="p">:</span><span class="w"> </span><span class="nv">$arguments</span><span class="p">,</span>
+<span class="w">    </span><span class="n">owner</span><span class="p">:</span><span class="w"> </span><span class="nv">$owner</span>
+<span class="w">  </span><span class="p">)</span><span class="err">:</span><span class="w"> </span><span class="n">String</span>
+<span class="p">}</span>
 </code></pre></div>
-<p><strong>Explanation</strong>: This mutation compiles the smart contract located at  <code>/path/to/token.sol</code>and outputs the compiled contract to  <code>output.json</code>.</p>
-<h3 id="deploy-contract">Deploy Contract<a class="headerlink" href="#deploy-contract" title="Permanent link">&para;</a></h3>
+<strong>Example:</strong>
 <div class="highlight"><pre><span></span><code><span class="k">mutation</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="n">deployContract</span><span class="p">(</span>
 <span class="w">    </span><span class="n">config</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;../path/to/service.config&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="n">contract</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;output.json&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;token.sol:Token&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">contract</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;TokenCompiled.json&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Token.sol:Token&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="n">arguments</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1000&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="n">owner</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0x3b706424119e09dcaad4acf21b10af3b33cde350&quot;</span>
 <span class="w">  </span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><strong>Sample Response</strong>:</p>
+<strong>Sample Response</strong>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;deployContract&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;owner_address: \&quot;0x3b706424119e09dcaad4acf21b10af3b33cde350\&quot;\ncontract_address: \&quot;0xc975ab41e0c2042a0229925a2f4f544747fd66cd\&quot;\ncontract_name: \&quot;token.sol:Token\&quot;&quot;</span>
+<span class="w">    </span><span class="nt">&quot;deployContract&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;owner_address: \&quot;0x3b706424119e09dcaad4acf21b10af3b33cde350\&quot;\ncontract_address: \&quot;0xc975ab41e0c2042a0229925a2f4f544747fd66cd\&quot;\ncontract_name: \&quot;Token.sol:Token\&quot;&quot;</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
+</code></pre></div></p>
+<hr />
+<h3 id="executecontract"><strong>executeContract</strong><a class="headerlink" href="#executecontract" title="Permanent link">&para;</a></h3>
+<p>Executes a function on a deployed smart contract.</p>
+<p>•  <strong>Type:</strong> Mutation</p>
+<p>•  <strong>Arguments:</strong></p>
+<ul>
+<li>
+<p><code>config</code> (String!): Path to the configuration file.</p>
+</li>
+<li>
+<p><code>sender</code> (String!): Address of the sender invoking the function.</p>
+</li>
+<li>
+<p><code>contract</code> (String!): Address of the deployed contract.</p>
+</li>
+<li>
+<p><code>functionName</code> (String!): Name of the function to execute (including parameter types, e.g., transfer(address,uint256)).</p>
+</li>
+<li>
+<p><code>arguments</code> (String): Arguments for the function (comma-separated).</p>
+</li>
+</ul>
+<p>•  <strong>Returns:</strong> Result of the function execution.</p>
+<p><strong>Definition:</strong></p>
+<p><div class="highlight"><pre><span></span><code><span class="k">mutation</span><span class="w"> </span><span class="nf">executeContract</span><span class="p">(</span>
+<span class="w">  </span><span class="nv">$config</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">!,</span>
+<span class="w">  </span><span class="nv">$sender</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">!,</span>
+<span class="w">  </span><span class="nv">$contract</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">!,</span>
+<span class="w">  </span><span class="nv">$functionName</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span><span class="p">!,</span>
+<span class="w">  </span><span class="nv">$arguments</span><span class="p">:</span><span class="w"> </span><span class="nb">String</span>
+<span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">executeContract</span><span class="p">(</span>
+<span class="w">    </span><span class="n">config</span><span class="p">:</span><span class="w"> </span><span class="nv">$config</span><span class="p">,</span>
+<span class="w">    </span><span class="n">sender</span><span class="p">:</span><span class="w"> </span><span class="nv">$sender</span><span class="p">,</span>
+<span class="w">    </span><span class="n">contract</span><span class="p">:</span><span class="w"> </span><span class="nv">$contract</span><span class="p">,</span>
+<span class="w">    </span><span class="n">functionName</span><span class="p">:</span><span class="w"> </span><span class="nv">$functionName</span><span class="p">,</span>
+<span class="w">    </span><span class="n">arguments</span><span class="p">:</span><span class="w"> </span><span class="nv">$arguments</span>
+<span class="w">  </span><span class="p">)</span><span class="err">:</span><span class="w"> </span><span class="n">String</span>
+<span class="p">}</span>
 </code></pre></div>
-<p><strong>Explanation</strong>: This mutation deploys the compiled contract using the specified parameters. The response includes the owner address, contract address, and contract name.</p>
-<h3 id="execute-contract">Execute Contract<a class="headerlink" href="#execute-contract" title="Permanent link">&para;</a></h3>
+<strong>Example:</strong>
 <div class="highlight"><pre><span></span><code><span class="k">mutation</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="n">executeContract</span><span class="p">(</span>
 <span class="w">    </span><span class="n">config</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;../path/to/service.config&quot;</span><span class="p">,</span>
@@ -1188,18 +1007,15 @@
 <span class="w">    </span><span class="n">functionName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;transfer(address,uint256)&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="n">arguments</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0x4847155cbb6f2219ba9b7df50be11a1c7f23f829,100&quot;</span>
 <span class="w">  </span><span class="p">)</span>
-<span class="p">}</span><span class="w"> </span>
+<span class="p">}</span>
 </code></pre></div>
-<p><strong>Sample Response</strong>:</p>
+<strong>Sample Response</strong>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;executeContract&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Function executed successfully.&quot;</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div>
-<p><strong>Explanation</strong>: This mutation executes the  <code>transfer</code>  function of the deployed contract, transferring  <code>100</code>  tokens to  <code>0x4847155cbb6f2219ba9b7df50be11a1c7f23f829</code>.</p>
-<h2 id="license">License<a class="headerlink" href="#license" title="Permanent link">&para;</a></h2>
-<p>This project is licensed under the Apache License - see the  <a href="LICENSE">LICENSE</a>  file for details.</p>
+</code></pre></div></p>
 
 
 
@@ -1278,12 +1094,12 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.525ec568.min.js"></script>
+      <script src="../assets/javascripts/bundle.525ec568.min.js"></script>
       
-        <script src="../../js/custom.js"></script>
+        <script src="../js/custom.js"></script>
       
     
   </body>
