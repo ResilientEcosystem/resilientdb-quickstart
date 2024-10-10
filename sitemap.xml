@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://gopuman.github.io/resilientdb-quickstart/</loc>
+         <lastmod>2024-10-10</lastmod>
+    </url>
+    <url>
+         <loc>https://gopuman.github.io/resilientdb-quickstart/installation/</loc>
+         <lastmod>2024-10-10</lastmod>
+    </url>
+    <url>
+         <loc>https://gopuman.github.io/resilientdb-quickstart/usage/pythonsdk/</loc>
+         <lastmod>2024-10-10</lastmod>
+    </url>
+    <url>
+         <loc>https://gopuman.github.io/resilientdb-quickstart/usage/resdborm/</loc>
+         <lastmod>2024-10-10</lastmod>
+    </url>
+    <url>
+         <loc>https://gopuman.github.io/resilientdb-quickstart/usage/resilientdb/</loc>
+         <lastmod>2024-10-10</lastmod>
+    </url>
+    <url>
+         <loc>https://gopuman.github.io/resilientdb-quickstart/usage/resvault/</loc>
+         <lastmod>2024-10-10</lastmod>
+    </url>
+    <url>
+         <loc>https://gopuman.github.io/resilientdb-quickstart/usage/smart-contracts-cli/</loc>
+         <lastmod>2024-10-10</lastmod>
+    </url>
+    <url>
+         <loc>https://gopuman.github.io/resilientdb-quickstart/usage/smart-contracts-graphql/</loc>
+         <lastmod>2024-10-10</lastmod>
+    </url>
+</urlset>
