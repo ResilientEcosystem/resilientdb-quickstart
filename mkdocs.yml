@@ -5,7 +5,8 @@ site_author: 'ResilientDB'
 # Theme configuration
 theme:
   name: 'material'
-  logo: 'images/logo.svg'  
+  favicon: 'images/favicon.ico'
+  logo: 'images/resilientdb.svg'  
   palette:
     - scheme: default
       primary: 'blue'
