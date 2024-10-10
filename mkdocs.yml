@@ -36,10 +36,7 @@ extra_javascript:
 # Site navigation
 nav:
   - Home: index.md
-  - Installation:
-      - Overview: installation/index.md
-      - Requirements: installation/requirements.md
-      - Setup: installation/setup.md
+  - Installation: installation.md
   - Usage:
       - ResilientDB: usage/resilientdb.md
       - PythonSDK: usage/pythonsdk.md
@@ -48,9 +45,7 @@ nav:
       - Smart-Contracts GraphQL: usage/smart-contracts-graphql.md
       - ResVault: usage/resvault.md
   - API Reference: api.md
-  - About:
-      - Team: about/team.md
-      - Contact: about/contact.md
+  - About: about.md
 
 # Plugins configuration
 plugins:
