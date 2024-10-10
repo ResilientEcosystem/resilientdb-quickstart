@@ -2,13 +2,13 @@
 title: Welcome to ResilientDB Quickstart Guide
 ---
 
-# ![ResilientDB Logo](images/logo.svg){ align=left width=150 }
+# ![ResilientDB Logo](images/logo.svg)
 
 Welcome to the **ResilientDB Quickstart Guide**—your one-stop shop for all ResilientDB projects and how to get started with them. This documentation provides comprehensive guides to install, use, and contribute to the ResilientDB ecosystem.
 
-[![GitHub Stars](https://img.shields.io/github/stars/ResilientEcosystem/resilientdb-quickstart?style=social)](https://github.com/ResilientEcosystem/resilientdb-quickstart)
-[![GitHub Forks](https://img.shields.io/github/forks/ResilientEcosystem/resilientdb-quickstart?style=social)](https://github.com/ResilientEcosystem/resilientdb-quickstart/fork)
-[![License](https://img.shields.io/github/license/ResilientEcosystem/resilientdb-quickstart)](LICENSE)
+[![GitHub Stars](https://img.shields.io/github/stars/apache/incubator-resilientdb?style=social)](https://github.com/apache/incubator-resilientdb)
+[![GitHub Forks](https://img.shields.io/github/forks/apache/incubator-resilientdb?style=social)](/https://github.com/apache/incubator-resilientdb/fork)
+[![License](https://img.shields.io/github/license/apache/incubator-resilientdb)](LICENSE)
 
 ---
 
