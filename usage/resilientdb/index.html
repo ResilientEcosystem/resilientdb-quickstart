@@ -740,6 +740,8 @@
 <div class="codehilite"><pre><span></span><code><span class="n">bazel</span><span class="w"> </span><span class="n">build</span><span class="w"> </span><span class="n">service</span><span class="o">/</span><span class="n">tools</span><span class="o">/</span><span class="n">kv</span><span class="o">/</span><span class="n">api_tools</span><span class="o">/</span><span class="n">kv_service_tools</span>
 </code></pre></div>
 
+<h3 id="issues">Issues<a class="headerlink" href="#issues" title="Permanent link">&para;</a></h3>
+<p>If you cannot build the project successfully, try to reduce the bazel jobs <a href="https://github.com/apache/incubator-resilientdb/blob/master/.bazelrc#L1">here</a>.</p>
 <h2 id="functions">Functions<a class="headerlink" href="#functions" title="Permanent link">&para;</a></h2>
 <p>ResilientDB supports two types of functions: version-based and non-version-based.
 Version-based functions will leverage versions to protect each update, versions must be obtained before updating a key.</p>
