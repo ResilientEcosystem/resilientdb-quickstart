@@ -37,6 +37,7 @@ extra_javascript:
 # Site navigation
 nav:
   - Home: index.md
+  - Blog: blog.md
   - Installation: installation.md
   - Usage:
       - ResilientDB: usage/resilientdb.md
