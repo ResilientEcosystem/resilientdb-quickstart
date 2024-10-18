@@ -688,36 +688,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#create-account" class="md-nav__link">
+  <a href="#using-type-path" class="md-nav__link">
     <span class="md-ellipsis">
-      Create Account
+      Using type path
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#compile-contract" class="md-nav__link">
+  <a href="#using-type-data" class="md-nav__link">
     <span class="md-ellipsis">
-      Compile Contract
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#deploy-contract" class="md-nav__link">
-    <span class="md-ellipsis">
-      Deploy Contract
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#execute-contract" class="md-nav__link">
-    <span class="md-ellipsis">
-      Execute Contract
+      Using type data
     </span>
   </a>
   
@@ -962,36 +944,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#create-account" class="md-nav__link">
+  <a href="#using-type-path" class="md-nav__link">
     <span class="md-ellipsis">
-      Create Account
+      Using type path
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#compile-contract" class="md-nav__link">
+  <a href="#using-type-data" class="md-nav__link">
     <span class="md-ellipsis">
-      Compile Contract
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#deploy-contract" class="md-nav__link">
-    <span class="md-ellipsis">
-      Deploy Contract
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#execute-contract" class="md-nav__link">
-    <span class="md-ellipsis">
-      Execute Contract
+      Using type data
     </span>
   </a>
   
@@ -1039,7 +1003,11 @@
 <li><a href="#running-the-server">Running the Server</a></li>
 <li><a href="#graphql-api">GraphQL API</a></li>
 <li><a href="#mutations">Mutations</a></li>
-<li><a href="#sample-mutations">Sample Mutations</a></li>
+<li><a href="#sample-mutations">Sample Mutations</a><ul>
+<li><a href="#using-type-path">Using Type “path”</a></li>
+<li><a href="#using-type-data">Using Type “data”</a></li>
+</ul>
+</li>
 <li><a href="#contributing">Contributing</a></li>
 <li><a href="#license">License</a></li>
 </ul>
@@ -1056,7 +1024,12 @@
 <div class="highlight"><pre><span></span><code>npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>rescontract-cli
 </code></pre></div>
 <ol>
-<li><strong>Node.js (version &gt;= 14)</strong>:  Download and install Node.js</li>
+<li>
+<p><strong>Node.js (version &gt;= 15.6.0)</strong>:  Download and install Node.js version 15.6.0 or higher, as the application uses crypto.randomUUID() which was introduced in Node.js v15.6.0.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># You can check your Node.js version with:</span>
+node<span class="w"> </span>-v
+</code></pre></div>
+</li>
 </ol>
 <p><strong>The prerequisites listed above can be installed using the <code>INSTALL.sh</code> script:</strong></p>
 <div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>+x<span class="w"> </span>INSTALL.sh
@@ -1093,28 +1066,30 @@
 <p><strong>Type</strong>: Mutation</p>
 <p><strong>Arguments</strong>:</p>
 <ul>
-<li><code>config</code>  (String!): Path to the configuration file.</li>
+<li><code>config</code>  (String!): Configuration data or path to the configuration file.</li>
+<li><code>type</code>  (String): Optional. Specifies whether config is data or a file path. Accepts "data" or "path". Defaults to "path".</li>
 </ul>
 <p><strong>Returns</strong>: String - Address of the newly created account or an error message.</p>
 <h4 id="compilecontract"><code>compileContract</code><a class="headerlink" href="#compilecontract" title="Permanent link">&para;</a></h4>
-<p>Compiles a smart contract from the specified source path and outputs the compiled contract to the specified output path.</p>
+<p>Compiles a smart contract from the specified source.</p>
 <p><strong>Type</strong>: Mutation</p>
 <p><strong>Arguments</strong>:</p>
 <ul>
-<li><code>sourcePath</code>  (String!): Path to the source file of the smart contract.</li>
-<li><code>outputPath</code>  (String!): Path to the output file for the compiled contract.</li>
+<li><code>source</code>  (String!): Solidity code or path to the source file of the smart contract.</li>
+<li><code>type</code>  (String): Optional. Specifies whether config is data or a file path. Accepts "data" or "path". Defaults to "path".</li>
 </ul>
-<p><strong>Returns</strong>: String - Success message or an error message.</p>
+<p><strong>Returns</strong>: String - Name of the compiled contract JSON file or an error message.</p>
 <h4 id="deploycontract"><code>deployContract</code><a class="headerlink" href="#deploycontract" title="Permanent link">&para;</a></h4>
 <p>Deploys a smart contract using the specified configuration, contract file, contract name, arguments, and owner address.</p>
 <p><strong>Type</strong>: Mutation</p>
 <p><strong>Arguments</strong>:</p>
 <ul>
-<li><code>config</code>  (String!): Path to the configuration file.</li>
+<li><code>config</code>  (String!): Configuration data or path to the configuration file.</li>
 <li><code>contract</code>  (String!): Path to the contract JSON file.</li>
 <li><code>name</code>  (String!): Name of the contract (include the full path and contract name).</li>
 <li><code>arguments</code>  (String!): Constructor arguments for the contract (comma-separated).</li>
 <li><code>owner</code>  (String!): Owner address.</li>
+<li><code>type</code>  (String): Optional. Specifies whether config is data or a file path. Accepts "data" or "path". Defaults to "path".</li>
 </ul>
 <p><strong>Returns</strong>: String - Details of the deployed contract or an error message.</p>
 <h4 id="executecontract"><code>executeContract</code><a class="headerlink" href="#executecontract" title="Permanent link">&para;</a></h4>
@@ -1122,82 +1097,179 @@
 <p><strong>Type</strong>: Mutation</p>
 <p><strong>Arguments</strong>:</p>
 <ul>
-<li><code>config</code>  (String!): Path to the configuration file.</li>
+<li><code>config</code>  (String!): Configuration data or path to the configuration file.</li>
 <li><code>sender</code>  (String!): Address of the sender.</li>
 <li><code>contract</code>  (String!): Address of the deployed contract.</li>
 <li><code>functionName</code>  (String!): Name of the function to execute (include parameter types).</li>
 <li><code>arguments</code>  (String!): Arguments for the function (comma-separated).</li>
+<li><code>type</code>  (String): Optional. Specifies whether config is data or a file path. Accepts "data" or "path". Defaults to "path".</li>
 </ul>
 <p><strong>Returns</strong>: String - Result of the function execution or an error message.</p>
 <h2 id="sample-mutations">Sample Mutations<a class="headerlink" href="#sample-mutations" title="Permanent link">&para;</a></h2>
-<p>Here are some sample mutations you can run:</p>
-<h3 id="create-account">Create Account<a class="headerlink" href="#create-account" title="Permanent link">&para;</a></h3>
+<p>Below are sample mutations demonstrating how to use the API with both "path" and "data" types.</p>
+<h3 id="using-type-path">Using type <code>path</code><a class="headerlink" href="#using-type-path" title="Permanent link">&para;</a></h3>
+<p>The <code>type</code> option defaults to "path" and doesn't have to be explicitly set. </p>
+<ol>
+<li><strong>Create Account</strong></li>
+</ol>
 <div class="highlight"><pre><span></span><code><span class="k">mutation</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">createAccount</span><span class="p">(</span><span class="n">config</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;../path/to/service.config&quot;</span><span class="p">)</span>
+<span class="w">  </span><span class="n">createAccount</span><span class="p">(</span><span class="n">config</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;../incubator-resilientdb/service/tools/config/interface/service.config&quot;</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><strong>Sample Response</strong>:</p>
-<p><div class="highlight"><pre><span></span><code><span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;createAccount&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0x3b706424119e09dcaad4acf21b10af3b33cde350&quot;</span>
-<span class="w">  </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-<strong>Explanation</strong>: This mutation creates a new account using the specified configuration file. The response contains the address of the newly created account.</p>
-<h3 id="compile-contract">Compile Contract<a class="headerlink" href="#compile-contract" title="Permanent link">&para;</a></h3>
-<p><div class="highlight"><pre><span></span><code><span class="k">mutation</span><span class="w"> </span><span class="p">{</span>
-<span class="w">  </span><span class="n">compileContract</span><span class="p">(</span>
-<span class="w">    </span><span class="n">sourcePath</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/path/to/token.sol&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="n">outputPath</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;output.json&quot;</span>
-<span class="w">  </span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div>
-<strong>Sample Response</strong>:</p>
+<p><strong>Sample Response:</strong>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;compileContract&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Compiled successfully to output.json&quot;</span>
+<span class="w">    </span><span class="nt">&quot;createAccount&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0x67c6697351ff4aec29cdbaabf2fbe3467cc254f8&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><strong>Explanation</strong>: Creates a new account using the configuration file located at the specified path.</p>
+<ol>
+<li><strong>Compile Contract</strong>
+<div class="highlight"><pre><span></span><code><span class="k">mutation</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">compileContract</span><span class="p">(</span>
+<span class="w">    </span><span class="n">source</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;token.sol&quot;</span>
+<span class="w">  </span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></li>
+</ol>
+<p><strong>Sample Response:</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;compileContract&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Compiled successfully to /users/yourusername/smart-contracts-graphql/compiled_contracts/MyContract.json&quot;</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><strong>Explanation</strong>: This mutation compiles the smart contract located at  <code>/path/to/token.sol</code>and outputs the compiled contract to  <code>output.json</code>.</p>
-<h3 id="deploy-contract">Deploy Contract<a class="headerlink" href="#deploy-contract" title="Permanent link">&para;</a></h3>
+<strong>Explanation</strong>: Compiles the smart contract located at token.sol and saves the compiled JSON to the compiled_contracts directory.</p>
+<ol>
+<li><strong>Deploy Contract</strong>
 <div class="highlight"><pre><span></span><code><span class="k">mutation</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="n">deployContract</span><span class="p">(</span>
-<span class="w">    </span><span class="n">config</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;../path/to/service.config&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="n">contract</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;output.json&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">config</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;../incubator-resilientdb/service/tools/config/interface/service.config&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">contract</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;compiled_contracts/MyContract.json&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;token.sol:Token&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="n">arguments</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1000&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="n">owner</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0x3b706424119e09dcaad4acf21b10af3b33cde350&quot;</span>
+<span class="w">    </span><span class="n">owner</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0x67c6697351ff4aec29cdbaabf2fbe3467cc254f8&quot;</span>
 <span class="w">  </span><span class="p">)</span>
 <span class="p">}</span>
-</code></pre></div>
-<p><strong>Sample Response</strong>:</p>
+</code></pre></div></li>
+</ol>
+<p><strong>Sample Response:</strong>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;deployContract&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;owner_address: \&quot;0x3b706424119e09dcaad4acf21b10af3b33cde350\&quot;\ncontract_address: \&quot;0xc975ab41e0c2042a0229925a2f4f544747fd66cd\&quot;\ncontract_name: \&quot;token.sol:Token\&quot;&quot;</span>
+<span class="w">    </span><span class="nt">&quot;deployContract&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;owner_address: 0x67c6697351ff4aec29cdbaabf2fbe3467cc254f8\ncontract_address: 0xfc08e5bfebdcf7bb4cf5aafc29be03c1d53898f1\ncontract_name: token.sol:Token&quot;</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><strong>Explanation</strong>: This mutation deploys the compiled contract using the specified parameters. The response includes the owner address, contract address, and contract name.</p>
-<h3 id="execute-contract">Execute Contract<a class="headerlink" href="#execute-contract" title="Permanent link">&para;</a></h3>
+<strong>Explanation</strong>: Deploys the compiled contract using the specified parameters.</p>
+<ol>
+<li><strong>Execute Contract</strong>
 <div class="highlight"><pre><span></span><code><span class="k">mutation</span><span class="w"> </span><span class="p">{</span>
 <span class="w">  </span><span class="n">executeContract</span><span class="p">(</span>
-<span class="w">    </span><span class="n">config</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;../path/to/service.config&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="n">sender</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0x3b706424119e09dcaad4acf21b10af3b33cde350&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="n">contract</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0xc975ab41e0c2042a0229925a2f4f544747fd66cd&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">config</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;../incubator-resilientdb/service/tools/config/interface/service.config&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">sender</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0x67c6697351ff4aec29cdbaabf2fbe3467cc254f8&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">contract</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0xfc08e5bfebdcf7bb4cf5aafc29be03c1d53898f1&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="n">functionName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;transfer(address,uint256)&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="n">arguments</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0x4847155cbb6f2219ba9b7df50be11a1c7f23f829,100&quot;</span>
+<span class="w">    </span><span class="n">arguments</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0x1be8e78d765a2e63339fc99a66320db73158a35a,100&quot;</span>
 <span class="w">  </span><span class="p">)</span>
-<span class="p">}</span><span class="w"> </span>
-</code></pre></div>
-<p><strong>Sample Response</strong>:</p>
+<span class="p">}</span>
+</code></pre></div></li>
+</ol>
+<p><strong>Sample Response:</strong>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;executeContract&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Function executed successfully.&quot;</span>
+<span class="w">    </span><span class="nt">&quot;executeContract&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;result: 0x0000000000000000000000000000000000000000000000000000000000000001&quot;</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p><strong>Explanation</strong>: This mutation executes the  <code>transfer</code>  function of the deployed contract, transferring  <code>100</code>  tokens to  <code>0x4847155cbb6f2219ba9b7df50be11a1c7f23f829</code>.</p>
+<strong>Explanation</strong>: Executes the transfer function of the deployed contract, transferring 100 tokens to the specified address.</p>
+<h3 id="using-type-data">Using type <code>data</code><a class="headerlink" href="#using-type-data" title="Permanent link">&para;</a></h3>
+<p>In this mode, the API accepts configuration data and Solidity code directly, without needing file paths.</p>
+<ol>
+<li><strong>Create Account</strong></li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="k">mutation</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">createAccount</span><span class="p">(</span>
+<span class="w">    </span><span class="n">config</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;5 127.0.0.1 10005&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;data&quot;</span>
+<span class="w">  </span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Sample Response:</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;createAccount&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0x255d051758e95ed4abb2cdc69bb454110e827441&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></p>
+<p><strong>Explanation</strong>: Creates a new account using the provided configuration data.</p>
+<ol>
+<li><strong>Compile Contract</strong>
+<div class="highlight"><pre><span></span><code><span class="k">mutation</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">compileContract</span><span class="p">(</span>
+<span class="w">    </span><span class="n">source</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="err">&quot;</span>
+<span class="w">    </span><span class="n">pragma</span><span class="w"> </span><span class="n">solidity</span><span class="w"> </span><span class="err">^0.8.0;</span>
+<span class="w">        </span><span class="err">...</span>
+<span class="w">        </span><span class="err">...</span>
+<span class="w">    </span><span class="err">}</span>
+<span class="w">    </span><span class="err">&quot;&quot;&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;data&quot;</span>
+<span class="w">  </span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></li>
+</ol>
+<p><strong>Sample Response:</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;compileContract&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;contract-20f42b42-f56f-45e8-8264-33cf8d93f8be.json&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<strong>Explanation</strong>: Compiles the provided Solidity code and returns the name of the compiled contract JSON file stored in the compiled_contracts directory.</p>
+<ol>
+<li><strong>Deploy Contract</strong>
+<div class="highlight"><pre><span></span><code><span class="k">mutation</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">deployContract</span><span class="p">(</span>
+<span class="w">    </span><span class="n">config</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;5 127.0.0.1 10005&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">contract</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;contract-20f42b42-f56f-45e8-8264-33cf8d93f8be.json&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Token&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">arguments</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1000&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">owner</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0x255d051758e95ed4abb2cdc69bb454110e827441&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;data&quot;</span>
+<span class="w">  </span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></li>
+</ol>
+<p><strong>Sample Response:</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;deployContract&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;owner_address: 0x255d051758e95ed4abb2cdc69bb454110e827441\ncontract_address: 0xb616e4c564b03fe336333758739a7d7ee0227d5d\ncontract_name: Token&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<strong>Explanation</strong>: Deploys the compiled contract using the configuration data and the compiled contract JSON file name returned from the compileContract mutation.</p>
+<ol>
+<li><strong>Execute Contract</strong>
+<div class="highlight"><pre><span></span><code><span class="k">mutation</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">executeContract</span><span class="p">(</span>
+<span class="w">    </span><span class="n">config</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;5 127.0.0.1 10005&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">sender</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0x255d051758e95ed4abb2cdc69bb454110e827441&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">contract</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0xb616e4c564b03fe336333758739a7d7ee0227d5d&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">functionName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;transfer(address,uint256)&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">arguments</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0x213ddc8770e93ea141e1fc673e017e97eadc6b96,100&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;data&quot;</span>
+<span class="w">  </span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></li>
+</ol>
+<p><strong>Sample Response:</strong>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;executeContract&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;result: 0x0000000000000000000000000000000000000000000000000000000000000001&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<strong>Explanation</strong>: Executes the transfer function of the deployed contract, transferring 100 tokens to the specified address, using configuration data.</p>
 <h2 id="license">License<a class="headerlink" href="#license" title="Permanent link">&para;</a></h2>
 <p>This project is licensed under the Apache License - see the  <a href="LICENSE">LICENSE</a>  file for details.</p>
 
