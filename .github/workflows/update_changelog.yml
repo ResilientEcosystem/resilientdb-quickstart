@@ -1,0 +1,35 @@
+name: Update Changelog
+
+on:
+  schedule:
+    - cron: '0 0 * * *'  # Run daily
+  workflow_dispatch:
+
+jobs:
+  update-changelog:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Fetch Release Notes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          curl -s -H "Authorization: token $GITHUB_TOKEN" \
+            "https://api.github.com/repos/ResilientEcosystem/resilientdb-quickstart/releases" \
+            | jq '[.[] | {name, body, created_at}]' > changelog.json
+
+      - name: Convert to Markdown
+        run: |
+          echo "# Changelog" > docs/changelog.md
+          jq -r '.[] | "\n## \(.name)\n*Released*: \(.created_at)\n\n\(.body)\n"' changelog.json >> docs/changelog.md
+
+      - name: Commit and Push Changelog
+        run: |
+          git config --local user.name "GitHub Action"
+          git config --local user.email "action@github.com"
+          git add docs/changelog.md
+          git commit -m "Update changelog"
+          git push
