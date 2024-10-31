@@ -3,3 +3,4 @@ mkdocs-material>=8.0
 mkdocs-mermaid2-plugin
 pymdown-extensions
 mkdocs-include-markdown-plugin
+requests
