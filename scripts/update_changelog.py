@@ -14,8 +14,8 @@ if response.status_code == 200:
     releases = response.json()
 
     # Create or update changelog.md
-    os.makedirs("docs", exist_ok=True)
-    with open("docs/changelog.md", "w") as file:
+    os.makedirs("../docs", exist_ok=True)
+    with open("../docs/changelog.md", "w") as file:
         file.write("# Changelog\n\n")
         for release in releases:
             file.write(f"## {release['name']} - {release['published_at']}\n\n")
