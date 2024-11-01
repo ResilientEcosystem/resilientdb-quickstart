@@ -9,6 +9,11 @@ on:
     branches:
       - main
 
+# Set dependencies for this workflow
+needs: 
+  - update_contributors
+  - update_changelog
+
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
