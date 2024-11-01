@@ -1,9 +1,12 @@
-name: Update Changelog
+name: update_changelog 
 
 on:
   schedule:
     - cron: '0 0 * * *'  # Run daily
   workflow_dispatch:
+  push:
+    branches:
+      - main 
 
 jobs:
   update-changelog:
@@ -14,14 +17,17 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Fetch Release Notes
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          curl -s -H "Authorization: token $GITHUB_TOKEN" \
-            "https://api.github.com/repos/apache/incubator-resilientdb/releases" \
-            | jq '[.[] | {name, body, created_at}]' > changelog.json
+          # Fetch release data without authorization header
+          curl -s "https://api.github.com/repos/apache/incubator-resilientdb/releases" > response.json
+          
+          # Check and parse the response
+          cat response.json  # Output the response for debugging
+          jq '[.[] | {name, body, created_at}]' response.json > changelog.json || \
+            echo "Error: Could not parse response" && cat response.json
 
       - name: Convert to Markdown
+        if: success()
         run: |
           echo "# Changelog" > docs/changelog.md
           jq -r '.[] | "\n## \(.name)\n*Released*: \(.created_at)\n\n\(.body)\n"' changelog.json >> docs/changelog.md
