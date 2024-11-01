@@ -52,4 +52,3 @@ ResilientDB is a high-performance, scalable, and secure blockchain platform desi
 - **GitHub:** [ResilientEcosystem](https://github.com/ResilientEcosystem)
 - **Contribute:** Check out our [contribution guidelines](CONTRIBUTING.md) to get started.
 - **Support:** If you have any questions or need help, feel free to [open an issue](https://github.com/ResilientEcosystem/resilientdb-quickstart/issues).
-

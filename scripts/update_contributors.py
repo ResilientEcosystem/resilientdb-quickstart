@@ -3,7 +3,7 @@ import os
 
 query = """
 {
-  repository(owner:"ResilientEcosystem", name:"resilientdb-quickstart") {
+  repository(owner:"apache", name:"incubator-resilientdb") {
     collaborators(first: 100) {
       edges {
         node {
