@@ -1,7 +1,6 @@
-
 # Installation Guide
 
-Welcome to the installation guide for ResilientDB and its associated projects. This guide will help you set up the entire ResilientDB ecosystem on your machine using the `INSTALL.sh` script.
+Welcome to the installation guide for ResilientDB and its associated projects. This guide will help you set up the entire ResilientDB ecosystem on your machine using a custom-generated `INSTALL.sh` script.
 
 ---
 
@@ -17,83 +16,133 @@ Before you begin, ensure you have the following installed on your system:
 
 ---
 
-## 🔧  **Running the `INSTALL.sh` Script**
+## 🔧 **Custom Installation Script Generator**
 
-The `INSTALL.sh` script automates the installation of all ResilientDB projects. Follow the steps below to get started.
+Select the components you want to install, and a custom `INSTALL.sh` script will be generated for you.
 
-### **Step 1: Clone the ResilientDB Quickstart Repository**
+<form id="install-form">
+  <label><input type="checkbox" name="app" value="resilientdb"> ResilientDB</label><br>
+  <label><input type="checkbox" name="app" value="pythonsdk"> PythonSDK</label><br>
+  <label><input type="checkbox" name="app" value="resdborm"> ResDBORM</label><br>
+  <label><input type="checkbox" name="app" value="smartcontracts-cli"> Smart-Contracts CLI</label><br>
+  <label><input type="checkbox" name="app" value="smartcontracts-graphql"> Smart-Contracts GraphQL</label><br>
+  <label><input type="checkbox" name="app" value="resvault"> ResVault</label><br>
+  <button type="button" onclick="generateScript()" class="generate-button">Generate INSTALL.sh</button>
+</form>
 
-```bash
-git clone https://github.com/ResilientEcosystem/resilientdb-quickstart.git
-cd resilientdb-quickstart
-```
+<a id="download-link" class="download-button" style="display:none;">Download your custom INSTALL.sh</a>
 
-### **Step 2: Make the Script Executable**
+<style>
+  .generate-button {
+    background-color: #348269;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 10px;
+  }
+  .download-button {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #2b56f5;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 4px;
+  }
+  .download-button:hover, .generate-button:hover {
+    background-color: #1e3d99;
+  }
+</style>
 
-```bash
-chmod +x INSTALL.sh
-```
-
-### **Step 3:  Run the INSTALL.sh script**
-
-```bash
+<script>
+  const installCommands = {
+    resilientdb: `
+# Install ResilientDB
+echo "Installing ResilientDB..."
+git clone https://github.com/apache/incubator-resilientdb.git /opt/incubator-resilientdb
+cd /opt/incubator-resilientdb
 ./INSTALL.sh
-```
-_Note: You may need to run the script with_ _sudo_ _privileges if prompted._
+./service/tools/kv/server_tools/start_kv_service.sh
+bazel build service/tools/kv/api_tools/kv_service_tools
+`,
+    pythonsdk: `
+# Install PythonSDK
+echo "Installing PythonSDK..."
+git clone https://github.com/apache/incubator-resilientdb-python-sdk.git /opt/incubator-resilientdb-python-sdk
+cd /opt/incubator-resilientdb-python-sdk
+sh ./INSTALL.sh
+python3.10 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+bazel build service/http_server/crow_service_main
+bazel-bin/service/http_server/crow_service_main service/tools/config/interface/client.config service/http_server/server_config.config
+deactivate
+`,
+    resdborm: `
+# Install ResDBORM
+echo "Installing ResDBORM..."
+git clone https://github.com/ResilientEcosystem/ResDB-ORM.git /opt/ResDB-ORM
+cd /opt/ResDB-ORM
+./INSTALL.sh
+pip install resdb-orm
+`,
+    "smartcontracts-cli": `
+# Install Smart-Contracts CLI
+echo "Installing Smart-Contracts CLI..."
+npm install -g rescontract-cli
+`,
+    "smartcontracts-graphql": `
+# Install Smart-Contracts GraphQL
+echo "Installing Smart-Contracts GraphQL..."
+git clone https://github.com/ResilientEcosystem/smart-contracts-graphql.git /opt/smart-contracts-graphql
+cd /opt/smart-contracts-graphql
+npm install
+`,
+    resvault: `
+# Install ResVault
+echo "Installing ResVault..."
+git clone https://github.com/apache/incubator-resilientdb-resvault.git /opt/ResVault
+cd /opt/ResVault
+npm install
+npm run build
+`
+  };
 
-## What does the INSTALL.sh script do?
+  function generateScript() {
+    const selectedApps = Array.from(document.querySelectorAll('input[name="app"]:checked')).map(cb => cb.value);
+    if (selectedApps.length === 0) {
+      alert("Please select at least one application to install.");
+      return;
+    }
 
-The script will:
+    let scriptContent = "#!/bin/bash\n\n# Check for root privileges\nif [ \"$EUID\" -ne 0 ]; then\n  echo \"Please run as root. Try using 'sudo ./INSTALL.sh'\"\n  exit\nfi\n\n";
+    scriptContent += "echo \"Updating package lists...\"\napt-get update\n";
+    scriptContent += "echo \"Installing dependencies...\"\napt-get install -y git curl build-essential python3 python3-venv python3-pip npm solc\n\n";
 
-1. **Install ResilientDB Core:**
+    selectedApps.forEach(app => {
+      scriptContent += installCommands[app];
+    });
 
-	•  Clones the ResilientDB repository.
+    scriptContent += "\necho \"Installation complete. Please refer to the documentation for usage instructions.\"\n";
 
-	•  Compiles the source code.
+    const blob = new Blob([scriptContent], { type: "text/plain" });
+    const link = document.getElementById("download-link");
+    link.href = URL.createObjectURL(blob);
+    link.download = "INSTALL.sh";
+    link.style.display = "block";
+    link.textContent = "Download your custom INSTALL.sh";
+  }
+</script>
 
-	•  Sets up necessary environment variables.
-
-2. **Install PythonSDK:**
-
-	•  Clones the PythonSDK repository.
-
-	•  Installs required Python packages.
-
-	•  Sets up the SDK for use in your projects.
-
-3. **Install ResDBORM:**
-
-	•  Clones the ResDBORM repository.
-
-	•  Installs dependencies.
-
-	•  Configures the ORM for database interactions.
-
-4. **Install Smart-Contracts CLI:**
-
-	•  Clones the Smart-Contracts CLI repository.
-
-	•  Installs Node.js packages.
-
-	•  Sets up the CLI tool globally.
-
-5. **Install Smart-Contracts GraphQL Server:**
-
-	•  Clones the GraphQL server repository.
-
-	•  Installs dependencies.
-
-	•  Starts the server.
-
-6. **Install ResVault:**
-
-	•  Clones the ResVault repository.
-
-	•  Configures secure key storage.
+---
 
 ## **🚀 Using Each Project After Installation**
 
-Check out the Usage Tab for more information:
+Once you've installed the selected projects, check out the Usage Tab for more information:
 
 - [ResilientDB](https://resilientecosystem.github.io/resilientdb-quickstart/usage/resilientdb/)
 - [Python SDK](https://resilientecosystem.github.io/resilientdb-quickstart/usage/pythonsdk/)
@@ -101,6 +150,3 @@ Check out the Usage Tab for more information:
 - [Smart-Contracts-CLI](https://resilientecosystem.github.io/resilientdb-quickstart/usage/smart-contracts-cli/)
 - [Smart-Contracts-GraphQL](https://resilientecosystem.github.io/resilientdb-quickstart/usage/smart-contracts-graphql/)
 - [ResVault](https://resilientecosystem.github.io/resilientdb-quickstart/usage/resvault/)
-
-
-

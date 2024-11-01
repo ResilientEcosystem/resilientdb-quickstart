@@ -18,7 +18,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           curl -s -H "Authorization: token $GITHUB_TOKEN" \
-            "https://api.github.com/repos/ResilientEcosystem/resilientdb-quickstart/releases" \
+            "https://api.github.com/repos/apache/incubator-resilientdb/releases" \
             | jq '[.[] | {name, body, created_at}]' > changelog.json
 
       - name: Convert to Markdown
