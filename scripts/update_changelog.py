@@ -15,10 +15,15 @@ if response.status_code == 200:
 
     # Create or update changelog.md
     os.makedirs("../docs", exist_ok=True)
-    with open("../docs/changelog.md", "w") as file:
-        file.write("# Changelog\n\n")
-        for release in releases:
-            file.write(f"## {release['name']} - {release['published_at']}\n\n")
-            file.write(f"{release['body']}\n\n")
+    changelog_content = "# Changelog\n\n"
+    for release in releases:
+        changelog_content += f"## {release['name']} - {release['published_at']}\n\n"
+        changelog_content += f"{release['body']}\n\n"
+    
+    # Write to file only if content has changed
+    filepath = "../docs/changelog.md"
+    if not os.path.isfile(filepath) or open(filepath).read() != changelog_content:
+        with open(filepath, "w") as file:
+            file.write(changelog_content)
 else:
     print("Error fetching releases:", response.status_code)

@@ -20,16 +20,20 @@ jobs:
         with:
           python-version: '3.9'
 
+      - name: Install Dependencies
+        run: |
+          pip install -r requirements.txt  # Install requests from requirements.txt
+
       - name: Update Contributors
         run: |
           python scripts/update_contributors.py
-          
+
       - name: Commit and Push Contributors Update
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "GitHub Actions"
           git add docs/contributors.md
-          git commit -m "Update contributors list"
+          git commit -m "Update contributors list" || echo "No changes to commit"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -40,6 +44,15 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install Dependencies
+        run: |
+          pip install -r requirements.txt
+
       - name: Update Changelog
         run: |
           python scripts/update_changelog.py
@@ -49,7 +62,7 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "GitHub Actions"
           git add docs/changelog.md
-          git commit -m "Update changelog"
+          git commit -m "Update changelog" || echo "No changes to commit"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
