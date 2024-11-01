@@ -1,25 +1,32 @@
 import requests
 import os
 
-query = """
-{
-  repository(owner:"apache", name:"incubator-resilientdb") {
-    collaborators(first: 100) {
-      edges {
-        node {
-          login
-        }
-      }
-    }
-  }
-}
-"""
-
+# Set up API request
 headers = {"Authorization": f"Bearer {os.getenv('GITHUB_TOKEN')}"}
-response = requests.post('https://api.github.com/graphql', json={'query': query}, headers=headers)
-contributors = response.json()['data']['repository']['collaborators']['edges']
+url = "https://api.github.com/repos/apache/incubator-resilientdb/collaborators"
+response = requests.get(url, headers=headers)
 
-with open('docs/contributors.md', 'w') as file:
-    file.write("# Contributors\n\n")
-    for contributor in contributors:
-        file.write(f"- {contributor['node']['login']}\n")
+# Check response status
+print("Response Status:", response.status_code)
+print("Response Content:", response.json())
+
+# Process and write contributors
+if response.status_code == 200:
+    contributors = response.json()
+    
+    # Ensure the docs directory exists
+    os.makedirs('docs', exist_ok=True)
+    
+    with open('docs/contributors.md', 'w') as file:
+        # Add a header and introductory message
+        file.write("# Contributors\n\n")
+        file.write("Thank you to all the amazing people who contribute to this project! 💙\n\n")
+        file.write("---\n\n")
+
+        # Write each contributor with an avatar and link
+        for contributor in contributors:
+            file.write(f"![{contributor['login']}]({contributor['avatar_url']}&s=50) ")  # 50px avatar
+            file.write(f"[{contributor['login']}]({contributor['html_url']})\n\n")
+
+else:
+    print("Error: Could not fetch contributors. Check API token and permissions.")
