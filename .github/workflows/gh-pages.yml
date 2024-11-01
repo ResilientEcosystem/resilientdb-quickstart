@@ -1,22 +1,64 @@
 name: Build and Deploy Documentation
 
-# Schedule to run at 00:00 UTC every day
 on:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 0 * * *'  # Run daily at 00:00 UTC
   workflow_dispatch:
   push:
     branches:
       - main
 
-# Set dependencies for this workflow
-needs: 
-  - update_contributors
-  - update_changelog
-
 jobs:
+  update_contributors:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Update Contributors
+        run: |
+          python scripts/update_contributors.py
+          
+      - name: Commit and Push Contributors Update
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "GitHub Actions"
+          git add docs/contributors.md
+          git commit -m "Update contributors list"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  update_changelog:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Update Changelog
+        run: |
+          python scripts/update_changelog.py
+
+      - name: Commit and Push Changelog Update
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "GitHub Actions"
+          git add docs/changelog.md
+          git commit -m "Update changelog"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
   build-deploy:
     runs-on: ubuntu-latest
+    needs: 
+      - update_contributors
+      - update_changelog
 
     steps:
       - name: Checkout Repository
