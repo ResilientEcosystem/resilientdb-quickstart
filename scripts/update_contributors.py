@@ -23,9 +23,9 @@ if response.status_code == 200:
         file.write("Thank you to all the amazing people who contribute to this project! 💙 \n\n")
         file.write("---\n\n")
 
-        # Write each contributor with an avatar and link
+        # Write each contributor with a fixed-size avatar and link
         for contributor in contributors:
-            file.write(f"![{contributor['login']}]({contributor['avatar_url']}&s=50) ")  # 50px avatar
+            file.write(f'<img src="{contributor["avatar_url"]}&s=50" width="50" height="50" alt="{contributor["login"]}"> ')
             file.write(f"[{contributor['login']}]({contributor['html_url']})\n\n")
 
 else:
