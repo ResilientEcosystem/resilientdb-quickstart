@@ -15,9 +15,9 @@ if response.status_code == 200:
     contributors = response.json()
 
     # Ensure the docs directory exists
-    os.makedirs('../docs', exist_ok=True)
+    os.makedirs('docs', exist_ok=True)
 
-    with open('../docs/contributors.md', 'w') as file:
+    with open('docs/contributors.md', 'w') as file:
         # Add a header and introductory message
         file.write("# Contributors\n\n")
         file.write("Thank you to all the amazing people who contribute to this project! 💙 \n\n")
