@@ -10,7 +10,7 @@ on:
 
 permissions: 
   contents: write 
-  id-token: write  # Set globally for ID token acquisition
+  id-token: write
 
 jobs:
   update_contributors:
@@ -47,8 +47,8 @@ jobs:
     needs: 
       - update_contributors
     permissions:
-      id-token: write  # Ensure ID token permission for this job
-      contents: write  # Set content write permission to push changes
+      id-token: write
+      contents: write
 
     steps:
       - name: Checkout Repository
@@ -82,7 +82,13 @@ jobs:
         run: |
           mkdocs build --clean
 
+      - name: Upload Documentation Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: github-pages
+          path: ./site  # Upload the built site directory as an artifact
+
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}  
