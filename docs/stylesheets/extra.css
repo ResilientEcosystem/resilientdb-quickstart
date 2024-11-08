@@ -9,3 +9,23 @@
   max-width: 200px;
 }
 
+/* Control the size of the logos */
+.md-content .logo {
+  max-width: 250px; /* Adjust as necessary */
+  height: auto;
+}
+
+/* Default to light mode logo */
+.logo-dark {
+  display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  /* Show dark mode logo, hide light mode logo */
+  .logo-light {
+      display: none;
+  }
+  .logo-dark {
+      display: block;
+  }
+}

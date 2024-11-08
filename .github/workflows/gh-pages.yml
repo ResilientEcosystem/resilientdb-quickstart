@@ -38,40 +38,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  update_changelog:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.9'
-
-      - name: Install Dependencies
-        run: |
-          pip install -r requirements.txt
-
-      - name: Update Changelog
-        run: |
-          python scripts/update_changelog.py
-
-      - name: Commit and Push Changelog Update
-        run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "GitHub Actions"
-          git add docs/changelog.md
-          git commit -m "Update changelog" || echo "No changes to commit"
-          git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
   build-deploy:
     runs-on: ubuntu-latest
     needs: 
       - update_contributors
-      - update_changelog
 
     steps:
       - name: Checkout Repository
