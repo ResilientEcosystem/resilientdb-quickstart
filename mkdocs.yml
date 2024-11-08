@@ -47,7 +47,6 @@ nav:
       - Smart-Contracts GraphQL: usage/smart-contracts-graphql.md
       - ResVault: usage/resvault.md
   - API Reference: api.md
-  - Changelog: changelog.md
   - Contributors: contributors.md
   - About: about.md
 

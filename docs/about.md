@@ -12,7 +12,7 @@ To provide a flexible and efficient blockchain infrastructure that empowers deve
 
 ## 👥 **The Team**
 
-ResilientDB is developed and maintained by a dedicated team of blockchain experts, developers, and researchers from around the world. We are passionate about open-source technology and committed to advancing the blockchain ecosystem.
+[ResilientDB](https://expolab.resilientdb.com/) is developed and maintained by a dedicated team of blockchain experts, developers, and researchers from around the world. We are passionate about open-source technology and committed to advancing the blockchain ecosystem.
 
 ---
 
