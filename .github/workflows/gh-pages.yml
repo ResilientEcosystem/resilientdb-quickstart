@@ -7,9 +7,10 @@ on:
   push:
     branches:
       - main
-      
+
+# Set permissions for the entire workflow if needed
 permissions:
-  id-token: write
+  contents: write
 
 jobs:
   update_contributors:
@@ -25,7 +26,7 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          pip install -r requirements.txt  # Install requests from requirements.txt
+          pip install -r requirements.txt
 
       - name: Update Contributors
         run: |
@@ -45,6 +46,9 @@ jobs:
     runs-on: ubuntu-latest
     needs: 
       - update_contributors
+    permissions:
+      id-token: write  # Add id-token permission for GitHub Pages deployment
+      contents: write
 
     steps:
       - name: Checkout Repository
