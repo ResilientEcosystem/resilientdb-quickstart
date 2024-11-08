@@ -29,7 +29,7 @@ ResilientDB is a high-performance, scalable, and secure blockchain platform desi
 ## 📖 **Get Started**
 
 - **[Installation Guide](installation/):** Learn how to install all ResilientDB projects using the `INSTALL.sh` script.
-- **[Usage Guides](usage/resilientdb/):** Explore detailed guides on how to use each ResilientDB project.
+- **[Usage Guides](usage/):** Explore detailed guides on how to use each ResilientDB project.
 - **[API Reference](api.md):** Discover the API endpoints provided by the Smart-Contracts GraphQL server.
 - **[About Us](about/):** Learn more about the ResilientDB project and the team behind it.
 
