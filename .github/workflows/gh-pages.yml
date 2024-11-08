@@ -82,13 +82,8 @@ jobs:
         run: |
           mkdocs build --clean
 
-      - name: Upload Documentation Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: github-pages
-          path: ./site  # Upload the built site directory as an artifact
-
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}  
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
