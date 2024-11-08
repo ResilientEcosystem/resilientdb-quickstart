@@ -27,7 +27,7 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "GitHub Actions"
-          git add docs/blog_toc.md
+          git add docs/blog.md
           git commit -m "Update blog TOC" || echo "No changes to commit"
           git push
         env:
