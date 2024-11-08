@@ -21,7 +21,7 @@ jobs:
         run: pip install feedparser
 
       - name: Update TOC
-        run: python scripts/update_blog_toc.py
+        run: python scripts/update_blog.py
 
       - name: Commit and Push Changes
         run: |
