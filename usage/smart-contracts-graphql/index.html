@@ -1225,13 +1225,22 @@ node<span class="w"> </span>-v
 <span class="w">    </span><span class="n">arguments</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1000&quot;</span><span class="p">,</span>
 <span class="w">    </span><span class="n">owner</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0x67c6697351ff4aec29cdbaabf2fbe3467cc254f8&quot;</span>
 <span class="w">  </span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">ownerAddress</span>
+<span class="w">    </span><span class="n">contractAddress</span>
+<span class="w">    </span><span class="n">contractName</span>
+<span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></li>
 </ol>
 <p><strong>Sample Response:</strong>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;deployContract&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;owner_address: 0x67c6697351ff4aec29cdbaabf2fbe3467cc254f8\ncontract_address: 0xfc08e5bfebdcf7bb4cf5aafc29be03c1d53898f1\ncontract_name: token.sol:Token&quot;</span>
+<span class="w">    </span><span class="nt">&quot;deployContract&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;ownerAddress&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0x67c6697351ff4aec29cdbaabf2fbe3467cc254f8&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;contractAddress&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0xfc08e5bfebdcf7bb4cf5aafc29be03c1d53898f1&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;contractName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;token.sol:Token&quot;</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -1252,7 +1261,7 @@ node<span class="w"> </span>-v
 <p><strong>Sample Response:</strong>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;executeContract&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;result: 0x0000000000000000000000000000000000000000000000000000000000000001&quot;</span>
+<span class="w">    </span><span class="nt">&quot;executeContract&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Execution successful&quot;</span>
 <span class="w">  </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
