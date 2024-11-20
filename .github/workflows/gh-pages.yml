@@ -82,6 +82,9 @@ jobs:
         run: |
           mkdocs build --clean
 
+      - name: Add CNAME File
+        run: echo "quickstart.resilientdb.com" > ./site/CNAME
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
