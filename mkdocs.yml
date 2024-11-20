@@ -8,18 +8,9 @@ theme:
   favicon: 'images/favicon.ico'
   logo: 'images/resilientdb.svg'  
   palette:
-    - scheme: default
-      primary: 'blue'
-      accent: 'teal'
-      toggle:
-        icon: material/weather-night
-        name: Switch to dark mode
     - scheme: slate
       primary: 'blue'
       accent: 'teal'
-      toggle:
-        icon: material/weather-sunny
-        name: Switch to light mode
   font:
     text: 'Roboto'
     code: 'Roboto Mono'
@@ -28,11 +19,10 @@ theme:
     - navigation.sections
     - navigation.top
 
-# Extra CSS and JavaScript
 extra_css:
-  - 'stylesheets/extra.css'  # Custom CSS file
+  - 'stylesheets/extra.css'  
 extra_javascript:
-  - 'js/custom.js'  # Custom JavaScript file (optional)
+  - 'js/custom.js'  
 
 # Site navigation
 nav:
@@ -55,8 +45,8 @@ plugins:
   - search
   - include-markdown:
       rewrite-relative-urls: true
-  # - blogging  # Uncomment if using a blogging plugin
-  # - mkdocstrings  # Uncomment if using API documentation
+  # - blogging 
+  # - mkdocstrings 
 
 # Markdown extensions
 markdown_extensions:
@@ -90,7 +80,7 @@ extra:
       content: "ResilientDB, blockchain, documentation, quickstart"
 
 # Site directory configuration
-site_dir: site  # Output directory for built site
+site_dir: site  
 
 # Repository configuration
 repo_name: 'ResilientEcosystem/resilientdb-quickstart'
