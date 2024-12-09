@@ -20,7 +20,7 @@
       
       
       <link rel="icon" href="../../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.47">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.48">
     
     
       
@@ -1217,6 +1217,16 @@ value = [v3,v2,v1]</p>
    <div class="highlight"><pre><span></span><code>./service/tools/kv/server_tools/start_kv_service.sh
 </code></pre></div></p>
 <p>Verify the functionality of the service by performing set and get operations provided above <a href="README.md#functions">functions</a>.</p>
+<h2 id="custom-ports">Custom Ports<a class="headerlink" href="#custom-ports" title="Permanent link">&para;</a></h2>
+<p>When starting the service locally, current services are running on 10000 port-base with 5 services where the server config is located <a href="https://github.com/apache/incubator-resilientdb/blob/master/service/tools/config/server/server.config">here</a></p>
+<p>If you want to change the setting,  you need to generate the certificates.</p>
+<p>Go the the workspace where the resilientdb repo is localted.</p>
+<p>Change the setting parameters here and run the script:
+  <div class="highlight"><pre><span></span><code>./service/tools/kv/server_tools/generate_config.sh
+</code></pre></div></p>
+<p>Then re-run the start script:
+  <div class="highlight"><pre><span></span><code>./service/tools/kv/server_tools/start_kv_service.sh
+</code></pre></div></p>
 
 
 
