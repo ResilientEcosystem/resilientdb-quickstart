@@ -77,11 +77,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#resilientdb-sdk" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -532,21 +527,6 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    PythonSDK
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -559,88 +539,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#check-python-is-up-to-date-39" class="md-nav__link">
-    <span class="md-ellipsis">
-      Check Python is up-to-date (3.9+)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#first-time-set-up" class="md-nav__link">
-    <span class="md-ellipsis">
-      First-time set up
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#running-kv-service" class="md-nav__link">
-    <span class="md-ellipsis">
-      Running KV service
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#running-crow-service-http-endpoints" class="md-nav__link">
-    <span class="md-ellipsis">
-      Running Crow service (HTTP endpoints)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#testing" class="md-nav__link">
-    <span class="md-ellipsis">
-      Testing
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#running-the-driver" class="md-nav__link">
-    <span class="md-ellipsis">
-      Running the driver
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#todo" class="md-nav__link">
-    <span class="md-ellipsis">
-      TODO
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -829,79 +727,6 @@
   
   
   
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#check-python-is-up-to-date-39" class="md-nav__link">
-    <span class="md-ellipsis">
-      Check Python is up-to-date (3.9+)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#first-time-set-up" class="md-nav__link">
-    <span class="md-ellipsis">
-      First-time set up
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#running-kv-service" class="md-nav__link">
-    <span class="md-ellipsis">
-      Running KV service
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#running-crow-service-http-endpoints" class="md-nav__link">
-    <span class="md-ellipsis">
-      Running Crow service (HTTP endpoints)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#testing" class="md-nav__link">
-    <span class="md-ellipsis">
-      Testing
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#running-the-driver" class="md-nav__link">
-    <span class="md-ellipsis">
-      Running the driver
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#todo" class="md-nav__link">
-    <span class="md-ellipsis">
-      TODO
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -920,36 +745,9 @@
   
 
 
-<h1 id="resilientdb-sdk">ResilientDB SDK<a class="headerlink" href="#resilientdb-sdk" title="Permanent link">&para;</a></h1>
-<h2 id="check-python-is-up-to-date-39">Check Python is up-to-date (3.9+)<a class="headerlink" href="#check-python-is-up-to-date-39" title="Permanent link">&para;</a></h2>
-<p><code>$ python3 --version</code></p>
-<p>If your Python version number is too low you may encounter type hinting issues when attempting to run the code. You can use a Python virtual environment, as shown below.</p>
-<h2 id="first-time-set-up">First-time set up<a class="headerlink" href="#first-time-set-up" title="Permanent link">&para;</a></h2>
-<p><code>$ sh INSTALL.sh</code></p>
-<p><code>$ python3.10 -m venv venv</code></p>
-<p><code>$ source venv/bin/activate</code></p>
-<p><code>$ pip install -r requirements.txt</code></p>
-<p>The correct Python configuration is needed for transaction validation.</p>
-<h2 id="running-kv-service">Running KV service<a class="headerlink" href="#running-kv-service" title="Permanent link">&para;</a></h2>
-<p>If your virtual environment is not already active:</p>
-<p><code>$ source venv/bin/activate</code></p>
-<p>Run the script to start 4 local nodes</p>
-<p><code>$ sh service/tools/start_kv_service_sdk.sh</code></p>
-<h2 id="running-crow-service-http-endpoints">Running Crow service (HTTP endpoints)<a class="headerlink" href="#running-crow-service-http-endpoints" title="Permanent link">&para;</a></h2>
-<p><code>$ bazel build service/http_server/crow_service_main</code></p>
-<p><code>$ bazel-bin/service/http_server/crow_service_main service/tools/config/interface/client.config service/http_server/server_config.config</code></p>
-<p>For a list of endpoints visit <a href="./service/http_server/README.md">here</a></p>
-<h2 id="testing">Testing<a class="headerlink" href="#testing" title="Permanent link">&para;</a></h2>
-<p><code>$ bazel-bin/service/kv_service/kv_service_tools service/tools/config/interface/service.config set test 1234</code></p>
-<h2 id="running-the-driver">Running the driver<a class="headerlink" href="#running-the-driver" title="Permanent link">&para;</a></h2>
-<p>Examples of using the driver can be seen in <a href="/test_driver.py">test_driver</a></p>
-<p>Replace the db_root_url with the address of the ResilientDB HTTP endpoints e.g. <code>127.0.0.1:18000</code></p>
-<h2 id="todo">TODO<a class="headerlink" href="#todo" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Setting up linting (using <a href="https://github.com/psf/black">black</a>) through github hooks</li>
-<li>convert the sdk into a package (for pip install)</li>
-<li>Potentially have a docker setup which fetched the Resdb image and runs it locally</li>
-</ul>
+  <h1>PythonSDK</h1>
+
+
 
 
 
