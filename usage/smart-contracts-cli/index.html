@@ -784,7 +784,9 @@
 <li><a href="#create-command">create Command</a></li>
 <li><a href="#compile-command">compile Command</a></li>
 <li><a href="#deploy-command">deploy Command</a></li>
-<li><a href="#execute-command">execute Command</a></li>
+<li><a href="#add_address-command">add_address Command</a></li>
+<li><a href="#list-deployments-command">list-deployments Command</a></li>
+<li><a href="#clear-registry-command">clear-registry Command</a></li>
 </ul>
 </li>
 <li><a href="#configuration-️">Configuration ⚙️</a></li>
@@ -800,8 +802,9 @@
 <ul>
 <li><strong>Create Smart Contracts</strong>: Generate new smart contract templates.</li>
 <li><strong>Compile Contracts</strong>: Compile Solidity contracts to JSON.</li>
-<li><strong>Deploy Smart Contracts</strong>: Deploy contracts to the blockchain.</li>
-<li><strong>Execute Functions</strong>: Interact with and manage deployed contracts.</li>
+<li><strong>Deploy Smart Contracts</strong>: Deploy contracts to the blockchain with automatic registry tracking.</li>
+<li><strong>Address Management</strong>: Add external addresses to the system.</li>
+<li><strong>Deployment Registry</strong>: Track and manage deployed contracts with built-in registry commands.</li>
 </ul>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <p>Before installing and using the ResContract CLI, ensure you have the following prerequisites installed on your system:</p>
@@ -895,25 +898,49 @@ Set<span class="w"> </span>the<span class="w">  </span><span class="sb">`</span>
 --contract<span class="w"> </span>build/MyToken.json<span class="w"> </span>--name<span class="w"> </span>MyToken<span class="w"> </span><span class="se">\</span>
 --arguments<span class="w"> </span><span class="s2">&quot;1000000&quot;</span><span class="w"> </span>--owner<span class="w"> </span>0xYourAddress
 </code></pre></div>
-<h4 id="execute-command">execute Command<a class="headerlink" href="#execute-command" title="Permanent link">&para;</a></h4>
-<p>Executes a smart contract function.</p>
-<p><strong>Usage:</strong></p>
-<div class="highlight"><pre><span></span><code>rescontract<span class="w"> </span>execute<span class="w"> </span>--config<span class="w"> </span>&lt;service.config&gt;<span class="w"> </span>--sender<span class="w"> </span>&lt;senderAddress&gt;<span class="w"> </span><span class="se">\</span>
---contract<span class="w"> </span>&lt;contractAddress&gt;<span class="w"> </span>--function-name<span class="w"> </span>&lt;functionName&gt;<span class="w"> </span>--arguments<span class="w"> </span><span class="s2">&quot;&lt;parameters&gt;&quot;</span>
-</code></pre></div>
+<h4 id="add_address-command">add_address Command<a class="headerlink" href="#add_address-command" title="Permanent link">&para;</a></h4>
+<p>Adds an external address to the system for contract interactions.</p>
+<p><strong>Usage:</strong>
+<div class="highlight"><pre><span></span><code>rescontract<span class="w"> </span>add_address<span class="w"> </span>--config<span class="w"> </span>&lt;path&gt;<span class="w"> </span>--external-address<span class="w"> </span>&lt;address&gt;
+</code></pre></div></p>
 <ul>
-<li><code>--config, -c</code>: Path to the client configuration file.</li>
-<li><code>--sender, -m</code>: Address of the sender executing the function.</li>
-<li><code>--contract, -s</code>: Address of the deployed contract.</li>
-<li><code>--function-name, -f</code>: Name of the function to execute (include parameter types).</li>
-<li><code>--arguments, -a</code>: Arguments to pass to the function (enclosed in quotes).</li>
+<li><code>--config, -c</code>: Path to the configuration file.</li>
+<li><code>--external-address, -e</code>: External address to add to the system.</li>
 </ul>
 <p><strong>Example:</strong>
-<div class="highlight"><pre><span></span><code>rescontract<span class="w"> </span>execute<span class="w"> </span>--config<span class="w"> </span>~/resilientdb/config/service.config<span class="w"> </span><span class="se">\</span>
---sender<span class="w"> </span>0xYourAddress<span class="w"> </span>--contract<span class="w"> </span>0xContractAddress<span class="w"> </span><span class="se">\</span>
---function-name<span class="w"> </span><span class="s2">&quot;transfer(address,uint256)&quot;</span><span class="w"> </span><span class="se">\</span>
---arguments<span class="w"> </span><span class="s2">&quot;0xRecipientAddress,100&quot;</span>
+<div class="highlight"><pre><span></span><code>rescontract<span class="w"> </span>add_address<span class="w"> </span>--config<span class="w"> </span>~/resilientdb/config/service.config<span class="w"> </span><span class="se">\</span>
+--external-address<span class="w"> </span>0xExternalAddress
 </code></pre></div></p>
+<h4 id="list-deployments-command">list-deployments Command<a class="headerlink" href="#list-deployments-command" title="Permanent link">&para;</a></h4>
+<p>Lists all deployed contracts tracked in the registry.</p>
+<p><strong>Usage:</strong>
+<div class="highlight"><pre><span></span><code>rescontract<span class="w"> </span>list-deployments
+</code></pre></div></p>
+<p><strong>Example:</strong>
+<div class="highlight"><pre><span></span><code>rescontract<span class="w"> </span>list-deployments
+</code></pre></div></p>
+<p>This command displays all deployed contracts with their owner addresses, contract names, and contract addresses.</p>
+<h4 id="clear-registry-command">clear-registry Command<a class="headerlink" href="#clear-registry-command" title="Permanent link">&para;</a></h4>
+<p>Clears the deployed contracts registry.</p>
+<p><strong>Usage:</strong>
+<div class="highlight"><pre><span></span><code>rescontract<span class="w"> </span>clear-registry
+</code></pre></div></p>
+<p><strong>Example:</strong>
+<div class="highlight"><pre><span></span><code>rescontract<span class="w"> </span>clear-registry
+</code></pre></div></p>
+<p><strong>Warning:</strong> This command permanently removes all deployment tracking information.</p>
+<h2 id="deployment-registry">Deployment Registry 📋<a class="headerlink" href="#deployment-registry" title="Permanent link">&para;</a></h2>
+<p>The ResContract CLI automatically tracks all deployed contracts in a registry file located at <code>~/.rescontract_deployed_contracts.json</code>. This registry provides several benefits:</p>
+<ul>
+<li><strong>Duplicate Prevention</strong>: Prevents deploying the same contract with the same owner and name</li>
+<li><strong>Contract Tracking</strong>: Maintains a record of all deployed contracts with their addresses</li>
+<li><strong>Easy Management</strong>: Use <code>list-deployments</code> to view all contracts and <code>clear-registry</code> to reset</li>
+</ul>
+<p>The registry stores the following information for each deployment:
+- Owner address
+- Contract name
+- Contract address
+- Deployment timestamp</p>
 <h2 id="license">License<a class="headerlink" href="#license" title="Permanent link">&para;</a></h2>
 <p>This project is licensed under the MIT License - see the  <a href="LICENSE">LICENSE</a>  file for details.</p>
 
