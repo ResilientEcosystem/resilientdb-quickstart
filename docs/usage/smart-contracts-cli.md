@@ -31,7 +31,9 @@ The **ResContract CLI** is a command-line tool for creating, deploying, and mana
     - [create Command](#create-command)
     - [compile Command](#compile-command)
     - [deploy Command](#deploy-command)
-    - [execute Command](#execute-command)
+    - [add_address Command](#add_address-command)
+    - [list-deployments Command](#list-deployments-command)
+    - [clear-registry Command](#clear-registry-command)
 - [Configuration ⚙️](#configuration-️)
   - [Setting the ResDB_Home Variable](#setting-the-resdb_home-variable)
     - [Option 1: Set `ResDB_Home` Environment Variable](#option-1-set-resdb_home-environment-variable)
@@ -43,8 +45,9 @@ The **ResContract CLI** is a command-line tool for creating, deploying, and mana
 
 - **Create Smart Contracts**: Generate new smart contract templates.
 - **Compile Contracts**: Compile Solidity contracts to JSON.
-- **Deploy Smart Contracts**: Deploy contracts to the blockchain.
-- **Execute Functions**: Interact with and manage deployed contracts.
+- **Deploy Smart Contracts**: Deploy contracts to the blockchain with automatic registry tracking.
+- **Address Management**: Add external addresses to the system.
+- **Deployment Registry**: Track and manage deployed contracts with built-in registry commands.
 
 ## Prerequisites
 
@@ -179,30 +182,69 @@ rescontract deploy --config ~/resilientdb/config/service.config \
 --arguments "1000000" --owner 0xYourAddress
 ```
 
-#### execute Command
+#### add_address Command
 
-Executes a smart contract function.
+Adds an external address to the system for contract interactions.
 
 **Usage:**
-
 ```bash
-rescontract execute --config <service.config> --sender <senderAddress> \
---contract <contractAddress> --function-name <functionName> --arguments "<parameters>"
+rescontract add_address --config <path> --external-address <address>
 ```
 
--   `--config, -c`: Path to the client configuration file.
--   `--sender, -m`: Address of the sender executing the function.
--   `--contract, -s`: Address of the deployed contract.
--   `--function-name, -f`: Name of the function to execute (include parameter types).
--   `--arguments, -a`: Arguments to pass to the function (enclosed in quotes).
+-   `--config, -c`: Path to the configuration file.
+-   `--external-address, -e`: External address to add to the system.
 
 **Example:**
 ```bash
-rescontract execute --config ~/resilientdb/config/service.config \
---sender 0xYourAddress --contract 0xContractAddress \
---function-name "transfer(address,uint256)" \
---arguments "0xRecipientAddress,100"
+rescontract add_address --config ~/resilientdb/config/service.config \
+--external-address 0xExternalAddress
 ```
+
+#### list-deployments Command
+
+Lists all deployed contracts tracked in the registry.
+
+**Usage:**
+```bash
+rescontract list-deployments
+```
+
+**Example:**
+```bash
+rescontract list-deployments
+```
+
+This command displays all deployed contracts with their owner addresses, contract names, and contract addresses.
+
+#### clear-registry Command
+
+Clears the deployed contracts registry.
+
+**Usage:**
+```bash
+rescontract clear-registry
+```
+
+**Example:**
+```bash
+rescontract clear-registry
+```
+
+**Warning:** This command permanently removes all deployment tracking information.
+
+## Deployment Registry 📋
+
+The ResContract CLI automatically tracks all deployed contracts in a registry file located at `~/.rescontract_deployed_contracts.json`. This registry provides several benefits:
+
+- **Duplicate Prevention**: Prevents deploying the same contract with the same owner and name
+- **Contract Tracking**: Maintains a record of all deployed contracts with their addresses
+- **Easy Management**: Use `list-deployments` to view all contracts and `clear-registry` to reset
+
+The registry stores the following information for each deployment:
+- Owner address
+- Contract name
+- Contract address
+- Deployment timestamp
 
 ## License
 
