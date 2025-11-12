@@ -19,8 +19,11 @@
         <link rel="next" href="../smart-contracts-cli/">
       
       
+        
+      
+      
       <link rel="icon" href="../../images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
     
     
       
@@ -28,10 +31,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.84d31ad4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.618322db.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -58,7 +61,6 @@
 
     
     
-    
   </head>
   
   
@@ -78,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#resdb-orm" class="md-skip">
           Skip to content
         </a>
       
@@ -394,9 +396,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Home
+  
+
     
   </span>
+  
   
 
       </a>
@@ -416,9 +423,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Blog
+  
+
     
   </span>
+  
   
 
       </a>
@@ -438,9 +450,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Installation
+  
+
     
   </span>
+  
   
 
       </a>
@@ -481,9 +498,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Usage
+  
+
     
   </span>
+  
   
 
             <span class="md-nav__icon md-icon"></span>
@@ -492,7 +514,11 @@
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
-            Usage
+            
+  
+    Usage
+  
+
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -508,9 +534,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     ResilientDB
+  
+
     
   </span>
+  
   
 
       </a>
@@ -531,9 +562,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     PythonSDK
+  
+
     
   </span>
+  
   
 
       </a>
@@ -558,17 +594,164 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ResDBORM
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
+    
+  
     ResDBORM
+  
+
     
   </span>
   
+  
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setting up Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-clone-this-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Clone this Repository
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-and-activate-a-virtual-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Create and Activate a Virtual Environment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-install-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Install Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-configure-configyaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Configure config.yaml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-verify-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Verify Installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-import-the-module-in-your-own-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Import the Module in Your Own Code
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -587,9 +770,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Smart-Contracts CLI
+  
+
     
   </span>
+  
   
 
       </a>
@@ -610,9 +798,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Smart-Contracts GraphQL
+  
+
     
   </span>
+  
   
 
       </a>
@@ -633,9 +826,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     ResVault
+  
+
     
   </span>
+  
   
 
       </a>
@@ -663,9 +861,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     API Reference
+  
+
     
   </span>
+  
   
 
       </a>
@@ -685,9 +888,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     Contributors
+  
+
     
   </span>
+  
   
 
       </a>
@@ -707,9 +915,14 @@
   
   
   <span class="md-ellipsis">
+    
+  
     About
+  
+
     
   </span>
+  
   
 
       </a>
@@ -737,6 +950,119 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setting up Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-clone-this-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Clone this Repository
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-create-and-activate-a-virtual-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Create and Activate a Virtual Environment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-install-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Install Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-configure-configyaml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Configure config.yaml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-verify-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Verify Installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-import-the-module-in-your-own-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Import the Module in Your Own Code
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -745,6 +1071,7 @@
           
           
             <div class="md-content" data-md-component="content">
+              
               <article class="md-content__inner md-typeset">
                 
                   
@@ -754,24 +1081,25 @@
   
 
 
-<h1 id="_1"><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h1 id="licensed-to-the-apache-software-foundation-asf-under-one">Licensed to the Apache Software Foundation (ASF) under one<a class="headerlink" href="#licensed-to-the-apache-software-foundation-asf-under-one" title="Permanent link">&para;</a></h1>
-<h1 id="or-more-contributor-license-agreements-see-the-notice-file">or more contributor license agreements.  See the NOTICE file<a class="headerlink" href="#or-more-contributor-license-agreements-see-the-notice-file" title="Permanent link">&para;</a></h1>
-<h1 id="distributed-with-this-work-for-additional-information">distributed with this work for additional information<a class="headerlink" href="#distributed-with-this-work-for-additional-information" title="Permanent link">&para;</a></h1>
-<h1 id="regarding-copyright-ownership-the-asf-licenses-this-file">regarding copyright ownership.  The ASF licenses this file<a class="headerlink" href="#regarding-copyright-ownership-the-asf-licenses-this-file" title="Permanent link">&para;</a></h1>
-<h1 id="to-you-under-the-apache-license-version-20-the">to you under the Apache License, Version 2.0 (the<a class="headerlink" href="#to-you-under-the-apache-license-version-20-the" title="Permanent link">&para;</a></h1>
-<h1 id="license-you-may-not-use-this-file-except-in-compliance">"License"); you may not use this file except in compliance<a class="headerlink" href="#license-you-may-not-use-this-file-except-in-compliance" title="Permanent link">&para;</a></h1>
-<h1 id="with-the-license-you-may-obtain-a-copy-of-the-license-at">with the License.  You may obtain a copy of the License at<a class="headerlink" href="#with-the-license-you-may-obtain-a-copy-of-the-license-at" title="Permanent link">&para;</a></h1>
-<h1 id="_2"><a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
-<h1 id="httpwwwapacheorglicenseslicense-20">http://www.apache.org/licenses/LICENSE-2.0<a class="headerlink" href="#httpwwwapacheorglicenseslicense-20" title="Permanent link">&para;</a></h1>
-<h1 id="_3"><a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
-<h1 id="unless-required-by-applicable-law-or-agreed-to-in-writing">Unless required by applicable law or agreed to in writing,<a class="headerlink" href="#unless-required-by-applicable-law-or-agreed-to-in-writing" title="Permanent link">&para;</a></h1>
-<h1 id="software-distributed-under-the-license-is-distributed-on-an">software distributed under the License is distributed on an<a class="headerlink" href="#software-distributed-under-the-license-is-distributed-on-an" title="Permanent link">&para;</a></h1>
-<h1 id="as-is-basis-without-warranties-or-conditions-of-any">"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY<a class="headerlink" href="#as-is-basis-without-warranties-or-conditions-of-any" title="Permanent link">&para;</a></h1>
-<h1 id="kind-either-express-or-implied-see-the-license-for-the">KIND, either express or implied.  See the License for the<a class="headerlink" href="#kind-either-express-or-implied-see-the-license-for-the" title="Permanent link">&para;</a></h1>
-<h1 id="specific-language-governing-permissions-and-limitations">specific language governing permissions and limitations<a class="headerlink" href="#specific-language-governing-permissions-and-limitations" title="Permanent link">&para;</a></h1>
-<h1 id="under-the-license">under the License.<a class="headerlink" href="#under-the-license" title="Permanent link">&para;</a></h1>
-<h1 id="_4"><a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ Software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations
+ under the License.
+-->
+
 <h1 id="resdb-orm">ResDB-ORM<a class="headerlink" href="#resdb-orm" title="Permanent link">&para;</a></h1>
 <p>ResDB-ORM is a Python module designed to simplify interactions with ResilientDB's key-value store database by providing an Object-Relational Mapping (ORM) interface. This library allows developers to use basic CRUD functionalities with ease.</p>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
@@ -918,10 +1246,11 @@ This script will perform basic operations to ensure that the connection to the R
     
     
       
-      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top"], "search": "../../assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e71a0d61.min.js"></script>
       
         <script src="../../js/custom.js"></script>
       
