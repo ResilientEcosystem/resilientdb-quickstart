@@ -1,4 +1,4 @@
-#
+```
 # Licensed to the Apache Software Foundation (ASF) under one
 # or more contributor license agreements.  See the NOTICE file
 # distributed with this work for additional information
@@ -15,7 +15,14 @@
 # KIND, either express or implied.  See the License for the
 # specific language governing permissions and limitations
 # under the License.
-#
+```
+**DEPRECATION NOTICE**
+
+This repository is **deprecated**.  
+Active development now continues in the [ResilientDB Monorepo](https://github.com/apache/incubator-resilientdb/tree/master).
+
+The Smart Contract GraphQL can be found at [ecosystem/smart-contract/smart-contract-graphql](https://github.com/apache/incubator-resilientdb/tree/master/ecosystem/smart-contract/smart-contract-graphql).
+
 
 # Smart Contracts GraphQL API 
 
