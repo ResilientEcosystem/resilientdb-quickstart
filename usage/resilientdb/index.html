@@ -867,6 +867,7 @@
 <li>ResilientDB exposes a wide range of interfaces such as a <strong>Key-Value</strong> store, <strong>Smart Contracts</strong>, <strong>UTXO</strong>, and <strong>Python SDK</strong>. Following are some of the decentralized applications (DApps) built on top of ResilientDB: <strong><a href="https://nft.resilientdb.com/">NFT Marketplace</a></strong> and <strong><a href="https://debitable.resilientdb.com/">Debitable</a></strong>.</li>
 <li>To persist blockchain, chain state, and metadata, ResilientDB provides durability through  <strong>LevelDB</strong>.</li>
 <li>ResilientDB provides access to a seamless <strong>GUI display</strong> for deployment and maintenance, and supports  <strong>Grafana</strong> for plotting monitoring data. </li>
+<li>ResilientDB ships with a rich <strong>ecosystem</strong> of first‑class tools under the <code>ecosystem/</code> directory, including <strong>wallets (ResVault)</strong>, <strong>SDKs and ORMs (Python, Rust, ResDB‑ORM)</strong>, <strong>APIs (GraphQL, REST)</strong>, and <strong>monitoring &amp; deployment tooling (ResLens, Ansible/Docker, Orbit, etc.)</strong>, making it easy to build, observe, and operate applications on top of ResilientDB.</li>
 <li><strong>[Historial Facts]</strong> The ResilientDB project was founded by <strong><a href="https://expolab.org/">Mohammad Sadoghi</a></strong> along with his students (<a href="https://gupta-suyash.github.io/index.html">Suyash Gupta</a> as the lead Architect, <a href="https://sajjadrahnama.com/">Sajjad Rahnama</a> as the lead System Designer, and <a href="https://www.jhellings.nl/">Jelle Hellings</a>) at <strong><a href="https://www.ucdavis.edu/">UC Davis</a></strong> in 2018 and was open-sourced in late 2019. On September 30, 2021, we released ResilientDB v-3.0. In 2022, ResilientDB was completely re-written and re-architected (<a href="https://github.com/cjcchen">Junchao Chen</a> as the lead Architect, <a href="https://github.com/DakaiKang">Dakai Kang</a> as the lead Recovery Architect along with the entire <a href="https://expolab.resilientdb.com/">NexRes Team</a>), paving the way for a new sustainable foundation, referred to as NexRes (Next Generation ResilientDB). Thus, on September 30, 2022, NexRes-v1.0.0 was born, marking a new beginning for <strong><a href="https://resilientdb.com/">ResilientDB</a></strong>. On October 21, 2023, <strong><a href="https://cwiki.apache.org/confluence/display/INCUBATOR/ResilientDBProposal">ResilientDB</a></strong> was officially accepted into <strong><a href="https://incubator.apache.org/projects/resilientdb.html">Apache Incubation</a></strong>.</li>
 </ol>
 <div align = "center">
@@ -877,7 +878,9 @@
 
 <hr />
 <h2 id="online-documentation">Online Documentation:<a class="headerlink" href="#online-documentation" title="Permanent link">&para;</a></h2>
-<p>The latest ResilientDB documentation, including a programming guide, is available on our <strong><a href="https://blog.resilientdb.com/archive.html?tag=NexRes">blog repository</a></strong>. This README file provides basic setup instructions.</p>
+<p>The latest ResilientDB documentation is available on <strong><a href="https://beacon.resilientdb.com/docs/installation">Beacon</a></strong>, our unified documentation portal.<br />
+For a deep, chapter‑wise explanation of how ResilientDB works, see the <strong><a href="https://beacon.resilientdb.com/docs/resilientdb">ResilientDB overview and chapters</a></strong>.<br />
+Historical and supplementary guides are also available on our <strong><a href="https://blog.resilientdb.com/archive.html?tag=NexRes">blog repository</a></strong>.</p>
 <h4 id="table-of-contents">Table of Contents<a class="headerlink" href="#table-of-contents" title="Permanent link">&para;</a></h4>
 <ol>
 <li>Software Stack Architecture </li>
@@ -899,6 +902,17 @@
 <img src="./img/nexres_architecture.png" width="600">
 </div>
 
+<h2 id="ecosystem-overview">Ecosystem Overview<a class="headerlink" href="#ecosystem-overview" title="Permanent link">&para;</a></h2>
+<p>Beyond the core NexRes engine, ResilientDB ships with a rich ecosystem of tools that make it easier to build applications and data/AI pipelines on top of the ledger:</p>
+<ul>
+<li><strong>Core Node (NexRes)</strong>: High-throughput, BFT-replicated state machine that orders and executes transactions with strong consistency and durability.</li>
+<li><strong>APIs (GraphQL &amp; REST)</strong>: ResilientDB exposes HTTP and GraphQL services for committing and querying transactions, making it easy to integrate with web backends, data services, and AI workflows.</li>
+<li><strong>ResVault (Wallet &amp; Extension)</strong>: Browser extension wallet that manages keys, lets users authenticate, and approve transactions from web apps, tying writes on-chain to user-controlled identities.</li>
+<li><strong>SDKs &amp; ORMs</strong>: Language-specific libraries (e.g., Python ORM, Rust SDK, ResVault SDK) that provide higher-level APIs for modeling assets, talking to GraphQL/REST, and wiring ResVault into applications.</li>
+<li><strong>Monitoring (ResLens &amp; dashboards)</strong>: Monitoring UIs and middleware (ResLens stack) that surface cluster health, performance metrics, and profiling data for running deployments.</li>
+<li><strong>Deployment Tooling (Orbit, Ansible, Docker)</strong>: Tools and playbooks for bringing up ResilientDB clusters and supporting services (GraphQL, Nginx, etc.) on local and cloud environments using Docker, Ansible, and the Orbit desktop deployer.</li>
+</ul>
+<p>Together, these components provide an end-to-end path from user-facing applications (web, services, or AI agents) through wallets and APIs down to the ResilientDB core.</p>
 <h2 id="os-requirements">OS Requirements<a class="headerlink" href="#os-requirements" title="Permanent link">&para;</a></h2>
 <p>Ubuntu 20+</p>
 <hr />
@@ -919,27 +933,33 @@
 │   ├── test/                        # Testing utilities
 │   └── utils/                       # General utilities
 ├── ecosystem/                       # Ecosystem components (git subtrees)
-│   ├── cache/                       # Caching implementations
-│   │   ├── resilient-node-cache/    # Node.js caching
-│   │   └── resilient-python-cache/  # Python caching
-│   ├── deployment/                  # Deployment and infrastructure
+│   ├── ai-tools/                    # AI, docs, and MCP tools
+│   │   ├── beacon/                  # Beacon docs site
+│   │   ├── nexus/                   # Nexus research / LLM tools
+│   │   └── mcp/                     # MCP integrations (GraphQL, ResInsight)
+│   ├── cache/                       # Caching libraries
+│   │   ├── resilient-node-cache/    # Node.js cache
+│   │   └── resilient-python-cache/  # Python cache
+│   ├── deployment/                  # Deployment tooling
 │   │   ├── ansible/                 # Ansible playbooks
-│   │   └── orbit/                   # Orbit deployment tool
-│   ├── graphql/                     # GraphQL service
-│   ├── monitoring/                  # Monitoring and observability
-│   │   ├── reslens/                 # ResLens monitoring tool
-│   │   └── reslens-middleware/      # ResLens middleware
-│   ├── sdk/                         # Software Development Kits
+│   │   └── orbit/                   # Orbit desktop deployer
+│   ├── graphql/                     # GraphQL + HTTP services
+│   ├── monitoring/                  # Monitoring stack
+│   │   ├── reslens/                 # ResLens UI
+│   │   └── reslens-middleware/      # ResLens backend
+│   ├── sdk/                         # SDKs and ORMs
 │   │   ├── resdb-orm/               # Python ORM
 │   │   ├── resvault-sdk/            # ResVault SDK
 │   │   └── rust-sdk/                # Rust SDK
-│   ├── smart-contract/              # Smart contract ecosystem
-│   │   ├── rescontract/             # ResContract repository
-│   │   ├── resilient-contract-kit/  # Contract development toolkit
-│   │   └── smart-contract-graphql/  # Smart contract GraphQL service
-│   └── tools/                       # Development and operational tools
-│       ├── create-resilient-app/    # App scaffolding tool
-│       └── resvault/                # ResVault tool
+│   ├── smart-contract/              # Smart contract stack
+│   │   ├── rescontract/             # Contracts and examples
+│   │   ├── resilient-contract-kit/  # Contract dev toolkit
+│   │   └── smart-contract-graphql/  # Contract GraphQL service
+│   ├── third_party/                 # External tools (e.g., PocketFlow)
+│   └── tools/                       # Dev and app tools
+│       ├── create-resilient-app/    # App scaffolding CLI
+│       ├── drawing-lib/             # Shared drawing widget
+│       └── resvault/                # ResVault wallet extension
 ├── executor/                        # Transaction execution engine
 │   ├── common/                      # Common execution utilities
 │   ├── contract/                    # Smart contract execution
@@ -1430,8 +1450,52 @@ value = [v3,v2,v1]</p>
   <div class="highlight"><pre><span></span><code>./service/tools/kv/server_tools/start_kv_service.sh
 </code></pre></div></p>
 <h2 id="smart-contract">Smart Contract<a class="headerlink" href="#smart-contract" title="Permanent link">&para;</a></h2>
-<p>If you want to use smart contracts, please go to:
-https://blog.resilientdb.com/2025/02/14/GettingStartedSmartContract.html</p>
+<p>ResilientDB includes a built‑in smart contract service that lets you deploy and execute Solidity contracts on top of NexRes. There are two primary ways to work with smart contracts:</p>
+<ol>
+<li>
+<p><strong>Low‑level flow via <code>contract_service_tools</code></strong><br />
+   This flow uses the <code>contract_service_tools</code> client and JSON payloads:</p>
+</li>
+<li>
+<p><strong>Create an owner account</strong>: call <code>contract_service_tools</code> with a JSON file containing <code>{"command": "create_account"}</code> to obtain an on‑chain owner address.</p>
+</li>
+<li><strong>Compile and deploy your contract</strong>:<ul>
+<li>Write your contract in Solidity (e.g., <code>token.sol</code>).</li>
+<li>Compile to JSON using <code>solc</code>, for example:<br />
+<code>solc --evm-version homestead --combined-json bin,hashes --pretty-json --optimize token.sol &gt; token.json</code></li>
+<li>Deploy with a JSON payload that includes:</li>
+<li><code>command: "deploy"</code></li>
+<li><code>contract_path</code>: path to the compiled JSON (e.g., <code>service/tools/kv/api_tools/example_contract/token.json</code>)</li>
+<li><code>contract_name</code>: contract identifier (e.g., <code>"token.sol:Token"</code>)</li>
+<li><code>init_params</code>: constructor parameters (if any)</li>
+<li><code>owner_address</code>: the owner account address  </li>
+<li>The response returns a <strong>contract address</strong> for future calls.</li>
+</ul>
+</li>
+<li>
+<p><strong>Execute contract functions</strong>: call <code>contract_service_tools</code> with a JSON payload that includes:</p>
+<ul>
+<li><code>command: "execute"</code></li>
+<li><code>contract_address</code>: deployed contract address</li>
+<li><code>caller_address</code>: account invoking the function</li>
+<li><code>func_name</code>: function signature (e.g., <code>"transfer(address,uint256)"</code>)</li>
+<li><code>params</code>: encoded parameters</li>
+</ul>
+</li>
+<li>
+<p><strong>Higher‑level tools: ResContract CLI and ResVault</strong><br />
+   Instead of crafting JSON by hand, you can use tools from the <code>ecosystem/</code> directory that wrap this functionality:</p>
+</li>
+<li>
+<p><strong>ResContract CLI</strong> (<code>ecosystem/smart-contract/rescontract/</code>):<br />
+     Command‑line interface for creating accounts, deploying contracts, and invoking methods, with a friendlier UX and helpers around contract artifacts.</p>
+</li>
+<li><strong>ResVault</strong> (<code>ecosystem/tools/resvault/</code>):<br />
+     Browser wallet and extension that can create accounts, approve transactions, and drive contract interactions from web apps, tying on‑chain activity to user identities.</li>
+</ol>
+<p>These tools provide full functionality up to and including <strong>deployment and interaction with smart contracts</strong>. See their individual READMEs for detailed usage and examples.</p>
+<p>In addition, you can use the <strong>Key‑Value interfaces</strong> to query or update associated balances via <code>get_balance</code> and <code>set_balance</code> commands when needed.</p>
+<p>For a full, step‑by‑step tutorial (including example JSON files, commands, and responses), see <strong><a href="https://blog.resilientdb.com/2025/02/14/GettingStartedSmartContract.html">Getting Started with Smart Contract on ResilientDB</a></strong>.</p>
 
 
 
